@@ -1,0 +1,41 @@
+﻿@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = (string)ViewData["Id"];
+        settings.CallbackRouteValues = new { Controller = ViewData["ControllerName"], Action = ViewData["ActionName"] };
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "کاربر موردنظر را انتخاب نمایید";
+        settings.SelectedIndex = -1;
+        settings.Properties.CallbackPageSize = 100;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+
+        settings.Properties.DropDownHeight = Unit.Pixel(200);
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+
+        settings.Properties.ValueField = "UserId";
+        settings.Properties.ValueType = typeof(int);
+
+        settings.Properties.PopupHorizontalAlign = PopupHorizontalAlign.Center;
+
+        settings.Properties.TextFormatString = "{0} - {1} - {2} - {3}";
+
+        settings.Properties.Columns.Add("FirstName", "نام", Unit.Percentage(15));
+        settings.Properties.Columns.Add("LastName", "نام خانوادگی", Unit.Percentage(20));
+        settings.Properties.Columns.Add("EId", "کد پرسنلی", Unit.Percentage(10));
+        settings.Properties.Columns.Add("Title", "امور", Unit.Percentage(25));
+        settings.Properties.Columns.Add("ChartTitle", "عنوان", Unit.Percentage(30));
+
+        settings.Properties.ItemStyle.Wrap = DefaultBoolean.True;
+        settings.Properties.CaptionStyle.Wrap = DefaultBoolean.True;
+
+
+        //settings.Properties.DropDownWidth = Unit.Pixel(500);
+        //settings.Properties.DropDownHeight = Unit.Pixel(250);
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient." + ViewData["JsSpaceName"] + "." + ViewData["JsCallbackName"];
+
+    }).BindList(Mohajjel.MeetingSystem.Client.Models.ViewModels.PagedAllUsers.GetAllUserListForSendTranscriptCombo,
+        Mohajjel.MeetingSystem.Client.Models.ViewModels.PagedAllUsers.GetAllUserListForSendTranscriptRangeByUserId).GetHtml()

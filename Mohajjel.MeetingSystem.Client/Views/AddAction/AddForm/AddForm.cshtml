@@ -1,0 +1,70 @@
+﻿@using DevExpress.Web.ASPxRichEdit
+
+<div class="col-xs-12 col-md-12">
+    <section class="app__section">
+        <div class="app__section__header">
+            انتخاب جلسه و مصوبات
+            @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+        </div>
+        <div class="app__section__body row">
+            <div class="col-xs-12 col-md-6">
+                <div class="app__form-item">
+                    <label class="app__form-label">
+                        <b>1.</b>جلسه را انتخاب نمایید
+                    </label>
+                    <div id="addFormGetUserActiveMeetingComboParent">
+                        @{ Html.RenderAction("GetUserActiveMeetingCombo", "AddAction"); }
+                    </div>
+                    <div class="app__form-error app__hide" id="addFormGetUserActiveMeetingComboError">
+                        جلسه انتخاب نشده است
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+                <div class="app__form-item">
+                    <label class="app__form-label">
+                        <b>2.</b>مصوبه را انتخاب نمایید
+                    </label>
+                    <div id="addFormGetUserMeetingApprovalListComboParent">
+                        @{ Html.RenderAction("GetUserMeetingApprovalListByMeetingIdAndUserIdCombo", "AddAction");}
+                    </div>
+                    <div class="app__form-error app__hide" id="addFormGetUserMeetingApprovalListComboError">
+                        مصوبه برای نمایش اقدامات انتخاب نشده است
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-12">
+                <div class="app__form-item">
+                    <label class="app__form-label">
+                        شرح اقدام خود را وارد نمایید ‌
+                    </label>
+                    <div id="addFormNewActionDescriptionHtmlEditorParent">
+                        @{Html.RenderPartial("~/Views/AddAction/AddForm/AddFormNewActionDescriptionHtmlEditorPartial.cshtml");}
+                    </div>
+                    <div class="app__form-error app__hide" id="addFormNewActionDescriptionHtmlEditorError">
+                        شرح اقدام وارد نشده است
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <div class="pull-left filter-form__action-wrapper" id="addNewActionSaveBtnDesign">
+                    @Html.DevExpress().Button(settings =>
+                    {
+                        settings.Name = "addNewActionSaveBtn";
+                        settings.Text = "افزودن شرح اقدام";
+                        settings.UseSubmitBehavior = false;
+                        settings.EnableClientSideAPI = true;
+                        settings.Width = Unit.Percentage(100);
+                        settings.Styles.Style.BackColor = System.Drawing.Color.Green;
+                        settings.Styles.CssPostfix = "filter-form__btn";
+                        settings.ClientSideEvents.Click = "motorsazanClient.addAction.addNewActionSaveBtnClick";
+                    }).GetHtml()
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

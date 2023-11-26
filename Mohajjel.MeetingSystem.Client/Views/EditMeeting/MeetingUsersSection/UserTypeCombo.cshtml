@@ -1,0 +1,22 @@
+﻿@using Mohajjel.MeetingSystem.Shared.Enums
+
+@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "userTypeCombo";
+    settings.Width = Unit.Percentage(100);
+    settings.SelectedIndex = 3;
+    settings.Properties.NullText = "نوع دسته بندی کاربران را انتخاب نمایید";
+    settings.Properties.ValueType = typeof(Int32);
+
+    settings.Properties.Items.Add("مدیران", UserEnumType.ManagerUserTypeValue.GetHashCode());
+    settings.Properties.Items.Add("روسا", UserEnumType.BossUserTypeValue.GetHashCode());
+    settings.Properties.Items.Add("سرپرستان", UserEnumType.SupervisorTypeValue.GetHashCode());
+    settings.Properties.Items.Add("پرسنل امور", UserEnumType.DepartmentTypeValue.GetHashCode());
+    settings.Properties.Items.Add("سایر پرسنل", UserEnumType.AllUserTypeValue.GetHashCode());
+    settings.Properties.Items.Add("افراد خارج از سازمان", UserEnumType.OutsideUserTypeValue.GetHashCode());
+
+    settings.Properties.ClientSideEvents.SelectedIndexChanged =
+        "motorsazanClient.editMeeting.handleUserTypeComboChange";
+
+}).GetHtml()
+

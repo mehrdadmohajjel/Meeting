@@ -1,0 +1,103 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.MeetingCategory.OutputGetAllMeetingCategory[]
+
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "grid";
+    settings.CallbackRouteValues = new { Controller = "MeetingCategory", Action = "MeetingCategoryGird" };
+    settings.ClientSideEvents.BeginCallback =
+        "motorsazanClient.meetingCategory.handleGridCallbackUrl";
+
+    settings.Width = Unit.Percentage(100);
+
+    settings.Settings.ShowFilterRow = true;
+    settings.Settings.ShowFilterRowMenu = true;
+    settings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+    settings.SettingsBehavior.AllowFocusedRow = true;
+    settings.SettingsBehavior.AllowSelectByRowClick = true;
+    settings.SettingsBehavior.AllowSelectSingleRowOnly = true;
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+    settings.SettingsBehavior.AutoExpandAllGroups = true;
+    settings.EnableRowsCache = true;
+
+    settings.KeyFieldName = "MeetingCategoryId";
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "RowIndex";
+        column.Caption = "ردیف";
+        column.Width = Unit.Pixel(60);
+        column.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+        column.Settings.AllowAutoFilter = DefaultBoolean.False;
+        settings.CustomUnboundColumnData = (s, e) =>
+        {
+            if (e.Column.FieldName == "RowIndex")
+                e.Value = e.ListSourceRowIndex + 1;
+        };
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "DepartmentName";
+        column.Caption = "امور";
+        column.Width = Unit.Percentage(20);
+        column.GroupIndex = 1;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Title";
+        column.Caption = "عنوان";
+        column.Width = Unit.Percentage(40);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Code";
+        column.Caption = "کد موضوع";
+        column.Width = Unit.Percentage(20);
+    });
+
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "DepartmentId";
+        column.Caption = "امور";
+        column.Width = Unit.Percentage(10);
+        column.Visible = false;
+    });
+
+
+    settings.CommandColumn.Caption = "عملیات";
+    settings.CommandColumn.VisibleIndex = 10;
+    settings.CommandColumn.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+    settings.CommandColumn.Width = Unit.Percentage(10);
+    GridViewCommandColumnCustomButton editCustomButton = new GridViewCommandColumnCustomButton() { ID = "editBTN", Text = "ویرایش" };
+    editCustomButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditCopy16x16;
+    editCustomButton.Styles.Style.BackColor = System.Drawing.Color.Orange;
+    settings.CommandColumn.CustomButtons.Add(editCustomButton);
+    GridViewCommandColumnCustomButton ObservaweBTN = new GridViewCommandColumnCustomButton();
+    ObservaweBTN.ID = "deleteBTN";
+    ObservaweBTN.Text = "حذف";
+    ObservaweBTN.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsRemove16x16;
+    ObservaweBTN.Styles.Style.BackColor = System.Drawing.Color.Red;
+    settings.CommandColumn.CustomButtons.Add(ObservaweBTN);
+
+    settings.ClientSideEvents.CustomButtonClick = "motorsazanClient.meetingCategory.handleCustombuttonClick";
+    settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Button;
+
+
+    settings.SettingsExport.EnableClientSideExportAPI = true;
+    settings.SettingsExport.ExcelExportMode = DevExpress.Export.ExportType.WYSIWYG;
+    settings.Toolbars.Add(t =>
+    {
+        t.Items.Add(GridViewToolbarCommand.ExportToXlsx).Text = "خروجی اکسل";
+    });
+
+    settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+    settings.SettingsPager.Summary.Text = "صفحه‌ {0} از {1} - تعداد کل : {2}";
+    settings.SettingsPager.Summary.Position = PagerButtonPosition.Right;
+    settings.SettingsPager.AlwaysShowPager = false;
+    settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+    settings.SettingsText.EmptyDataRow = "موردی یافت نشد";
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSize = 25;
+    settings.SettingsPager.PageSizeItemSettings.Caption = "تعداد سطر :";
+    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "50", "100", "200", "500" };
+
+}).Bind(Model).GetHtml()

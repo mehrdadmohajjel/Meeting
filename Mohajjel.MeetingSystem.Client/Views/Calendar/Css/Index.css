@@ -1,0 +1,52 @@
+﻿.calendar__table {
+  border: 1px solid #cfcfcf;
+  border-collapse: collapse;
+  width: 100%; }
+
+.calendar__header-row {
+  background: #35B86B;
+  color: #ffffff; }
+
+.calendar__header-cell {
+  font-size: 12px;
+  padding: 4px;
+  text-align: center;
+  width: 14.28%; }
+
+.calendar__body-row {
+  border-bottom: 1px solid #cfcfcf; }
+
+.calendar__body-cell {
+  border: 1px solid #cfcfcf;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 4px;
+  text-align: center;
+  width: 14.28%; }
+  .calendar__body-cell:hover {
+    background: #cfcfcf; }
+  .calendar__body-cell--holiday {
+    color: #f44336; }
+    .calendar__body-cell--holiday:hover {
+      background: #f44336;
+      color: #ffffff; }
+  .calendar__body-cell--active {
+    color: #ffffff;
+    background: #007BF7; }
+    .calendar__body-cell--active:hover {
+      background: #007BF7;
+      color: #ffffff; }
+  .calendar__body-cell--disabled {
+    color: #cfcfcf;
+    cursor: default;
+    opacity: 0.8; }
+    .calendar__body-cell--disabled:hover {
+      background: transparent; }
+
+.calendar__day-num {
+  font-size: 13px;
+  font-weight: bold; }
+
+.month-name {
+  font-size: x-small;
+  font-weight: 900; }

@@ -1,0 +1,13 @@
+﻿
+@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "areaCombo";
+    settings.Width = Unit.Percentage(100);
+    settings.SelectedIndex = -1;
+    settings.Properties.NullText = " محدوده جلسه را انتخاب نمایید";
+    settings.Properties.ValueType = typeof(Int32);
+    settings.Properties.Items.Add("داخل اموری", 1);
+    settings.Properties.Items.Add("خارج اموری", 2);
+    settings.Properties.ClientSideEvents.SelectedIndexChanged =
+        "motorsazanClient.addMeeting.handleAreaComboChange";
+}).GetHtml()

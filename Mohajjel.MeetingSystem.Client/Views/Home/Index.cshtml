@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "صفحه اصلی جلسات";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/Home/Css/StatictisStyle.min.css" rel="Stylesheet" />
+}
+
+<div class="row">
+    @{Html.RenderPartial("~/Views/Home/_SectionCirecleStatictis.cshtml");}
+</div>
+
+@{Html.RenderPartial("~/Views/Home/_SectionApprvalResult.cshtml");}

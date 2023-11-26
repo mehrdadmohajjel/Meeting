@@ -1,0 +1,147 @@
+﻿@using System.Drawing
+@model Mohajjel.MeetingSystem.Shared.Models.Output.AddApproval.OutputGetAllMeetingApprovalsByMeetingId[]
+
+@{
+    var meetingId = TempData["MeetingId"];
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "meetingApprovalGrid";
+        settings.Caption = "لیست مصوبات";
+        settings.CallbackRouteValues = new { Controller = "AddApproval", Action = "MeetingApprovalGrid" };
+
+        settings.SettingsEditing.BatchUpdateRouteValues = new { Controller = "AddApproval", Action = "BatchEditingUpdateModel", meetingId = meetingId };
+
+        settings.ClientSideEvents.BeginCallback =
+            "motorsazanClient.addApproval.handleMeetingApprovalGridBeginCallback";
+
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.SettingsBehavior.AllowSelectSingleRowOnly = true;
+        settings.EnableRowsCache = false;
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.Batch;
+        settings.SettingsEditing.BatchEditSettings.KeepChangesOnCallbacks = DefaultBoolean.True;
+        settings.SettingsEditing.BatchEditSettings.StartEditAction = GridViewBatchStartEditAction.DblClick;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.Settings.ShowFooter = true;
+        settings.Width = Unit.Percentage(100);
+        settings.KeyFieldName = "MeetingApprovalId";
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RowIndex";
+            column.Caption = "ردیف";
+            column.Width = Unit.Percentage(5);
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+            column.Settings.ShowEditorInBatchEditMode = false;
+            column.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+            settings.CustomUnboundColumnData = (s, e) =>
+            {
+                if (e.Column.FieldName == "RowIndex")
+                {
+                    e.Value = e.ListSourceRowIndex + 1;
+                }
+            };
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ResponsiblePeopleName";
+            column.Caption = "نام و نام خانوادگی";
+            column.Width = Unit.Percentage(30);
+            column.Index = 3;
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Settings.ShowEditorInBatchEditMode = false;
+            column.ReadOnly = true;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeadlineFaDate";
+            column.Caption = "مهلت اجرا";
+            column.Width = Unit.Percentage(10);
+            column.Index = 6;
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Settings.ShowEditorInBatchEditMode = false;
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Description";
+            column.Caption = "مصوبه یا توضیحات مطروحه";
+            column.Width = Unit.Percentage(50);
+            column.Index = 7;
+            column.Settings.AllowAutoFilter = DefaultBoolean.False;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Settings.ShowEditorInBatchEditMode = true;
+
+            column.BatchEditModifiedCellStyle.BackColor = Color.Green;
+            column.BatchEditModifiedCellStyle.ForeColor = Color.White;
+        });
+
+        settings.Columns.Add("MeetingApprovalId").Visible = false;
+        settings.Columns.Add("ResponsibleUserId").Visible = false;
+        settings.Columns.Add("FirstName").Visible = false;
+        settings.Columns.Add("LastName").Visible = false;
+
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 700;
+
+        settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+
+        settings.Styles.Header.Wrap = DefaultBoolean.True;
+        settings.Styles.Cell.Wrap = DefaultBoolean.True;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = false;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowNewButtonInHeader = false;
+        settings.CommandColumn.Caption = "عملیات";
+        settings.CommandColumn.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+        settings.CommandColumn.Width = Unit.Percentage(5);
+
+        GridViewCommandColumnCustomButton deleteCustomButton = new GridViewCommandColumnCustomButton() { ID = "deleteBtn", Text = "حذف از لیست" };
+        deleteCustomButton.Image.IconID = DevExpress.Web.ASPxThemes.IconID.EditDelete16x16;
+        settings.CommandColumn.CustomButtons.Add(deleteCustomButton);
+
+        settings.ClientSideEvents.CustomButtonClick = "function(s,e){motorsazanClient.addApproval.prepareDelete(s,e)}";
+
+
+        settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Image;
+        settings.SettingsCommandButton.NewButton.Image.IconID = IconID.ActionsAdd16x16;
+        settings.SettingsCommandButton.EditButton.Image.IconID = IconID.EditCopy16x16;
+        settings.SettingsCommandButton.DeleteButton.Image.IconID = IconID.EditDelete16x16;
+        settings.SettingsCommandButton.UpdateButton.Image.IconID = IconID.SaveSave16x16;
+        settings.SettingsCommandButton.CancelButton.Image.IconID = IconID.ActionsCancel16x16;
+        settings.SettingsCommandButton.NewButton.Text = "افزودن";
+        settings.SettingsCommandButton.EditButton.Text = "ویرایش";
+        settings.SettingsCommandButton.DeleteButton.Text = "حذف";
+
+        settings.SettingsText.CommandBatchEditUpdate = "بروزرسانی تغییرات";
+        settings.SettingsText.CommandBatchEditCancel = "انصراف";
+        settings.SettingsText.CommandBatchEditPreviewChanges = "بازبینی  تغییرات";
+        settings.SettingsText.BatchEditChangesPreviewUpdatedValues = "ردیف های ویرایش یافته";
+        settings.SettingsText.CommandBatchEditHidePreview = "انصراف از بازبینی";
+        settings.SettingsLoadingPanel.Text = "در حال پردازش و بارگذاری ...";
+
+        settings.SettingsPager.AlwaysShowPager = false;
+        settings.SettingsPager.Mode = GridViewPagerMode.ShowAllRecords;
+        settings.SettingsText.EmptyDataRow = "موردی یافت نشد";
+
+        settings.Settings.ShowFilterRow = true;
+        settings.Settings.ShowFilterRowMenu = true;
+
+        settings.SettingsBehavior.AllowFocusedRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+        settings.EnableRowsCache = true;
+
+    });
+}
+
+@grid.Bind(Model).GetHtml()
+

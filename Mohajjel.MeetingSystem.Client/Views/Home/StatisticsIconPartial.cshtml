@@ -1,0 +1,68 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.Home.OutputGetMeetingStatistics[]
+
+@if (Model != null)
+{
+    foreach (var item in Model)
+    {
+        <section class="main">
+            <ul class="ch-grid">
+                <li>
+                    <a href="#">
+                        <div class="ch-item ch-img-YearlyAttendList">
+                            <div class="ch-info">
+
+                                <h3 id="YearlyAttend">@item.YearlyAttend </h3>
+                            </div>
+                        </div>
+                        <div style="color:red;font-size:14px;text-align:center;">@item.YearlyAttend</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="ch-item ch-img-YearlyApproval">
+                            <div class="ch-info">
+                                <h3 id="YearlyApproval">
+                                    @item.YearlyApproval
+                                </h3>
+                            </div>
+                        </div>
+                        <div style="color:red;font-size:14px;text-align:center;">@item.YearlyApproval</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="ch-item ch-img-YearlyExpireAction">
+                            <div class="ch-info">
+                                <h3 id="YearlyExpireAction">
+                                    @item.YearlyExpireAction
+                                </h3>
+                            </div>
+                        </div>
+                        <div style="color:red;font-size:14px;text-align:center;">@item.YearlyExpireAction</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="ch-item ch-img-YearlyActionCount">
+                            <div class="ch-info">
+                                <h3 id="YearlyActionCount">@item.YearlyActionCount</h3>
+                            </div>
+                        </div>
+                        <div style="color:red;font-size:14px;text-align:center;">@item.YearlyActionCount</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="ch-item ch-img-YearlyActionCountWithTime">
+                            <div class="ch-info">
+                                <h3 id="YearlyActionCountWithTime"> @item.YearlyActionCountWithTime</h3>
+                            </div>
+                        </div>
+                        <div style="color:red;font-size:14px;text-align:center;">@item.YearlyActionCountWithTime</div>
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+    }
+}

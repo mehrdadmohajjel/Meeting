@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "Client/Dist/Css/PanelLayout.css",
+    "inputFile": "Client/Src/Scss/Views/Shared/PanelLayout.scss"
+  },
+  {
+    "outputFile": "Views/AlternativeDefine/Css/Index.css",
+    "inputFile": "Views/AlternativeDefine/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/AlternativeReport/Css/Index.css",
+    "inputFile": "Views/AlternativeReport/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/AddAction/Css/Index.css",
+    "inputFile": "Views/AddAction/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/MyAction/Css/Index.css",
+    "inputFile": "Views/MyAction/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/Calendar/Css/Index.css",
+    "inputFile": "Views/Calendar/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/AddMeeting/Css/Index.css",
+    "inputFile": "Views/AddMeeting/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/ApprovalActionReport/Css/Index.css",
+    "inputFile": "Views/ApprovalActionReport/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/EditMeeting/Css/Index.css",
+    "inputFile": "Views/EditMeeting/Css/Index.scss"
+  },
+  {
+    "outputFile": "Views/Home/Css/StatictisStyle.css",
+    "inputFile": "Views/Home/Css/StatictisStyle.scss"
+  }
+]

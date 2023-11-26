@@ -1,0 +1,22 @@
+﻿@using Mohajjel.MeetingSystem.Shared.Enums
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "filterFormGetDataTypeCombo";
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "بازه زمانی را انتخاب نمایید";
+        settings.SelectedIndex = -1;
+        settings.Properties.CallbackPageSize = 100;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+
+        settings.Properties.Items.Add("نمایش جلسات برگزار شده طی هفته گذشته", MeetingDatePeriodType.LastWeek);
+        settings.Properties.Items.Add("نمایش جلسات هفته جاری", MeetingDatePeriodType.CurrentWeek);
+        settings.Properties.Items.Add("نمایش جلسات هفته بعد", MeetingDatePeriodType.NextWeek);
+        settings.Properties.Items.Add("انتخاب بازه زمانی خاص", MeetingDatePeriodType.SpecialDate);
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.manageMyMeetings.handleFilterFormGetDataTypeComboSelectedIndexChange";
+    }).GetHtml()

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "ثبت جلسه جدید";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/AddMeeting/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/AddMeeting/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="col-xs-12 col-lg-9">
+        <section class="app__section">
+            <div class="app__section__header">
+                ایجاد جلسه جدید
+                @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+            </div>
+            <div class="app__section__body">
+                @{Html.RenderPartial("~/Views/AddMeeting/MeetingBaseInfo/_MeetingBaseInfoPartail.cshtml");}
+                @{Html.RenderPartial("~/Views/AddMeeting/MeetingUserInfo/_SectionMeetingUsersStep.cshtml");}
+                @{Html.RenderPartial("~/Views/AddMeeting/FinalStep/_SectionMeetingFinalizeStep.cshtml");}
+                @{Html.RenderPartial("~/Views/AddMeeting/_SectionMeetingStepsActionBtns.cshtml");}
+            </div>
+        </section>
+    </div>
+        @{Html.RenderPartial("~/Views/AddMeeting/_SectionWizardHelp.cshtml");}
+
+</div>
+

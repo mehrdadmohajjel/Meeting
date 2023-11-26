@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "ثبت مصوبات جلسه";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/AddApproval/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/AddApproval/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+    <div class="col-xs-12 col-md-4 col-lg-4">
+        <section class="app__section">
+            <div class="app__section__header">
+                ثبت مصوبه جدید
+                @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+            </div>
+            <div class="app__section__body">
+                @{Html.RenderPartial("~/Views/AddApproval/Section/_SectionMeetingSelect.cshtml");}
+                @{Html.RenderPartial("~/Views/AddApproval/Section/_SectionMeetingDetail.cshtml");}
+                @{Html.RenderPartial("~/Views/AddApproval/Section/_SectionApprovalDetail.cshtml");}
+            </div>
+        </section>
+    </div>
+
+    <div class="col-xs-12 col-md-8 col-lg-8">
+        @{Html.RenderPartial("~/Views/AddApproval/Grid/_SectionApprovalsGrid.cshtml");}
+    </div>
+</div>
+

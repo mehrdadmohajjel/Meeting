@@ -1,0 +1,68 @@
+﻿@using DevExpress.Web.ASPxRichEdit
+
+<div class="col-xs-12 col-md-12">
+    <section class="app__section">
+
+        <div class="app__section__header">
+            انتخاب تاریخ
+            @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+        </div>
+
+        <div class="app__section__body row">
+
+            <div class="col-xs-12 col-md-12 col-lg-12">
+
+                <div class="col-xs-12 col-md-12" id="filterFormGetAllYearsComboDesign">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            انتخاب سال
+                        </label>
+                        <div id="filterFormGetAllYearsComboParent">
+                            @{ Html.RenderAction("GetAllYearsCombo", "Calendar");}
+                        </div>
+                        <div class="app__form-error app__hide" id="filterFormGetAllYearsComboError">
+                            لطفا سال را انتخاب نمایید
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-12" id="filterFormMonthComboDesign">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            انتخاب ماه
+                        </label>
+                        <div id="filterFormMonthComboParent">
+                            @{Html.RenderPartial("~/Views/Calendar/FilterForm/FilterFormMonthCombo.cshtml");}
+                        </div>
+                        <div class="app__form-error app__hide" id="filterFormMonthComboError">
+                            ماه را انتخاب نمایید
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-12 col-md-4 pull-left">
+                    <div class="filter-form__action-wrapper" id="showCalendarBtnDesign">
+                        @Html.DevExpress().Button(settings =>
+                        {
+                            settings.Name = "showCalendarBtn";
+                            settings.Text = "نمایش تقویم";
+                            settings.UseSubmitBehavior = false;
+                            settings.EnableClientSideAPI = true;
+                            settings.Width = Unit.Percentage(100);
+                            settings.Styles.CssPostfix = "filter-form__btn";
+                            settings.ClientSideEvents.Click = "motorsazanClient.calendar.showCalendarBtnClick";
+                        }).GetHtml()
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="col-xs-12 col-md-12">
+                <div class="app__section__body filter-form__action-wrapper" id="DaysWrapper"></div>
+            </div>
+        </div>
+
+    </section>
+</div>

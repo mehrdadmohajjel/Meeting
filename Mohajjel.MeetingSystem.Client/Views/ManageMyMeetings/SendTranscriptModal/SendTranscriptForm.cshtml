@@ -1,0 +1,73 @@
+﻿@{
+    var meetingId = (long)ViewBag.MeetingId;
+}
+
+<div class="col-xs-12 col-md-12" id="sendTranscriptModalDesign">
+    <div class="col-xs-12 col-md-12" id="addTranscriptDesign">
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    انتخاب گیرنده رونوشت
+                </label>
+                <div id="sendTranscriptReceiverListComboParent">
+                    @{
+                        Html.RenderAction("SendTranscriptReceiverListCombo", "ManageMyMeetings");
+                    }
+                </div>
+                <div class="app__form-error app__hide" id="sendTranscriptReceiverListComboError">
+                    کاربر گیرنده رونوشت انتخاب نشده است
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    توضیحات
+                </label>
+                <div id="sendTranscriptDescriptionMemoParent">
+                    @Html.DevExpress().Memo(settings =>
+                    {
+                        settings.Name = "sendTranscriptDescriptionMemo";
+                        settings.Properties.NullText = "توضیحات";
+                        settings.Properties.ClientSideEvents.ValueChanged =
+                            "motorsazanClient.manageMyMeetings.handleSendTranscriptDescriptionMemoValueChanged";
+                    }).GetHtml()
+                </div>
+                <div id="sendTranscriptDescriptionMemoError"
+                     class="app__form-error app__hide">
+                    توضیحات برای ارسال رونوشت وارد نشده است
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-4 pull-left">
+            <div class="app__form-item app__form-item--action">
+                @Html.DevExpress().Button(settings =>
+                {
+                    settings.Name = "sendTranscriptBtn";
+                    settings.Text = "ارسال رونوشت";
+                    settings.UseSubmitBehavior = false;
+                    settings.EnableClientSideAPI = true;
+                    settings.Styles.CssPostfix = "add-form__btn";
+                    settings.Width = Unit.Percentage(100);
+                    settings.ClientSideEvents.Click =
+                        "motorsazanClient.manageMyMeetings.sendTranscriptBtnClick";
+                }).GetHtml()
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <form id="sendTranscriptGridParent" class="app__grid-wrapper">
+                @{ Html.RenderAction("FillSendTranscriptGrid", "ManageMyMeetings", new { meetingId = meetingId });}
+            </form>
+        </div>
+    </div>
+
+</div>

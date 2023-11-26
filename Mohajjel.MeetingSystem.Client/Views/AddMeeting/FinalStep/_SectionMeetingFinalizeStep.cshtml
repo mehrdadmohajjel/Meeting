@@ -1,0 +1,162 @@
+﻿<div id="finalizeStep" class="app__hide">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    دبیر جلسه
+                </label>
+                @Html.DevExpress().ComboBox(settings =>
+                {
+                    settings.Name = "secretaryCombo";
+                    settings.Width = Unit.Percentage(100);
+                    settings.SelectedIndex = -1;
+                    settings.Properties.NullText = "دبیر جلسه را انتخاب نمایید";
+                    settings.Properties.ValueType = typeof(Int32);
+
+                }).GetHtml()
+
+                <div class="app__form-error app__hide" id="secretaryComboError">
+                    برای ثبت نهایی بایستی یک از شرکت کنندگان به عنوان دبیر تعیین گردد
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    موضوع جلسه
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "titleSummaryInput";
+                    settings.ClientEnabled = false;
+                }).GetHtml()
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    محدوده جلسه
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                 {
+                     settings.Name = "areaSummaryInput";
+                     settings.ClientEnabled = false;
+                 }).GetHtml()
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    امور برگزارکننده
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "departmentSummaryInput";
+                    settings.ClientEnabled = false;
+                }).GetHtml()
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    دسته‌بندی
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                 {
+                     settings.Name = "categorySummaryInput";
+                     settings.ClientEnabled = false;
+                 }).GetHtml()
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    محل برگزاری جلسه
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "placeSummaryInput";
+                    settings.ClientEnabled = false;
+                }).GetHtml()
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    تاریخ
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "meetingDateSummaryInput";
+                    settings.ClientEnabled = false;
+                }).GetHtml()
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            زمان شروع
+                        </label>
+                        @Html.DevExpress().TextBox(settings =>
+                        {
+                            settings.Name = "startTimeSummaryInput";
+                            settings.Properties.MaskSettings.Mask = "99:99";
+                            settings.ClientEnabled = false;
+                        }).GetHtml()
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            زمان پایان
+                        </label>
+                        @Html.DevExpress().TextBox(settings =>
+                        {
+                            settings.Name = "endTimeSummaryInput";
+                            settings.Properties.MaskSettings.Mask = "99:99";
+                            settings.ClientEnabled = false;
+                        }).GetHtml()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                   تعداد شرکت کنندگان
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+         {
+             settings.Name = "usersSummaryInput";
+             settings.ClientEnabled = false;
+         }).GetHtml()
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    دستور جلسه
+                </label>
+                @Html.DevExpress().Memo(settings =>
+                {
+                    settings.Name = "descriptionSummaryMemo";
+                    settings.Properties.Height = Unit.Pixel(300);
+                    settings.ClientEnabled = false;
+                    settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+                }).GetHtml()
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿
+<div class="hidden-xs hidden-sm hidden-md col-lg-3">
+    <section class="app__section app__section--success">
+        <div class="app__section__header">
+            راهنمایی
+            @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+        </div>
+        <div class="app__section__body">
+            <ul class="meeting__wizard" id="MeetingWizard">
+                <li class="meeting__wizard__item">
+                    <span class="meeting__wizard__icon-wrapper"></span>
+                    ثبت اطلاعات پایه
+                </li>
+                <li class="meeting__wizard__item">
+                    <span class="meeting__wizard__icon-wrapper"></span>
+                    تعیین لیست شرکت‌ کنندگان
+                </li>
+                <li class="meeting__wizard__item">
+                    <span class="meeting__wizard__icon-wrapper"></span>
+                    تعیین دبیر و ثبت نهایی جلسه
+                </li>
+            </ul>
+            <div id="WizardStep1Help" class="app__hide">
+                <p>
+                    <b>
+                        توجه:
+                    </b>
+                    عدد وارد شده برای میزان دقیقه، در فیلدهای زمان شروع و پایان بایستی به <b>00</b> یا <b>30</b> ختم شوند. مثال 15:00 یا 15:30.
+
+                </p>
+            </div>
+            <div id="WizardStep2Help" class="app__hide">
+                <p>
+                    برای افزودن شرکت کنندکان، کاربر مورد نظر را از جدول سمت راست تیک زده تا به طور خودکار به لیست اضافه شود .
+                </p>
+            </div>
+            <div id="WizardStep3Help" class="app__hide">
+                <p>
+                    <b>
+                        توجه :
+                    </b>
+                    برای ثبت نهایی جلسه بایستی یک از شرکت کنندگان به عنوان دبیر انتخاب شود.
+                </p>
+                <p>
+                    برای تکمیل عملیات، پس از تعیین دبیر و اطمینان از صحت اطلاعات وارد شده دکمه
+                    <b>تایید نهایی و ثبت جلسه</b>
+                    را انتخاب نمایید.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>

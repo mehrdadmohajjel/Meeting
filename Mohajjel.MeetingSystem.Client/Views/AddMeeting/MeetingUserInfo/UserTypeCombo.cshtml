@@ -1,0 +1,18 @@
+﻿
+@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "userTypeCombo";
+    settings.Width = Unit.Percentage(100);
+    settings.SelectedIndex = 3;
+    settings.Properties.NullText = "نوع دسته بندی کاربران را انتخاب نمایید";
+    settings.Properties.ValueType = typeof(Int32);
+    settings.Properties.Items.Add("مدیران", 1);
+    settings.Properties.Items.Add("روسا", 2);
+    settings.Properties.Items.Add("سرپرستان", 3);
+    settings.Properties.Items.Add("پرسنل امور", 4);
+    settings.Properties.Items.Add("سایر پرسنل", 5);
+    settings.Properties.Items.Add("افراد خارج از سازمان", 6);
+
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "motorsazanClient.addMeeting.handleUserTypeComboChange";
+}).GetHtml()
+

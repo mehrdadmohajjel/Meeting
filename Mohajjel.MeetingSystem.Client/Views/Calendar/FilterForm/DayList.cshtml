@@ -1,0 +1,51 @@
+﻿@using Mohajjel.MeetingSystem.Shared.Enums
+@using Mohajjel.MeetingSystem.Shared.Utilities
+@model List<Mohajjel.MeetingSystem.Shared.Models.Output.Calendar.OutputGetSpecialMonthDays>
+
+<div class="app__grid-wrapper">
+    <table class="calendar__table">
+        <thead>
+            <tr class="calendar__header-row">
+                <th class="calendar__header-cell">شنبه</th>
+                <th class="calendar__header-cell">یکشنبه</th>
+                <th class="calendar__header-cell">دوشنبه</th>
+                <th class="calendar__header-cell">سه‌شنبه</th>
+                <th class="calendar__header-cell">چهارشنبه</th>
+                <th class="calendar__header-cell">پنجشنبه</th>
+                <th class="calendar__header-cell">جمعه</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                if (i % 7 == 0)
+                {
+                    @:<tr class="calendar__body-row">
+                    }
+
+
+                    if (Model[i].CalendarId == 0)
+                    {
+                        @:<td class="calendar__body-cell calendar__body-cell--disabled"></td>
+                    }
+                    else
+                    {
+                        var dayClass = Model[i].IsHoliday ? "calendar__body-cell calendar__body-cell--holiday" : "calendar__body-cell";
+                        <td class="@dayClass" data-id="@Model[i].CalendarId" title="@Model[i].DayDescription">
+                            <div class="calendar__day-num">
+                                @Model[i].FaDate.Split('/')[2]
+                            </div>
+                            <span class="month-name">
+                                @Enum.GetName(typeof(Mohajjel.MeetingSystem.Shared.Enums.MonthType), Convert.ToInt32(Model[i].EnDate.ToShamsiDateString().Split('/')[1]))
+                            </span>
+                        </td>
+                    }
+
+                    if ((i + 1) % 7 == 0)
+                    {
+                    @:</tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

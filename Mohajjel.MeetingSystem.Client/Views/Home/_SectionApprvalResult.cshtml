@@ -1,0 +1,17 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <section class="app__section">
+            <div class="app__section__header">
+                وضعیت مصوبات شما
+                @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+            </div>
+            <div style="direction:rtl;width:100%;"><div style="display:inline-block;width:25px;height:25px;font-size:12px;background-color:#90EE90;"></div><div style="display:inline-block;width:90%;font-size:12px;vertical-align:top;padding-right:10px;">ردیف های سبز رنگ مصوبه هایی هستند که دارای مهلت برای ثبت اقدم می باشند.</div></div>
+            <div style="direction:rtl;width:100%;margin-bottom:10px;"><div style="display:inline-block;font-size:12px;background-color:#FF4500;width:25px;height:25px;"> </div><div style="display:inline-block;width:90%;font-size:12px;vertical-align:top;padding-right:10px;">ردیف های قرمز رنگ مصوبه هایی هستند که مهلت انجام اقدام آن ها تمام شده است</div></div>
+
+            <div class="app__section__body app__grid-wrapper"
+                 id="resultGridParent">
+                @{ Html.RenderAction("ResultGrid"); }
+            </div>
+        </section>
+    </div>
+</div>

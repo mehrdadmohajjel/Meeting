@@ -1,0 +1,75 @@
+﻿.meeting__wizard {
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0; }
+  .meeting__wizard__item {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 16px;
+    position: relative; }
+  .meeting__wizard__icon-wrapper {
+    background: #cfcfcf;
+    border: 5px solid #cfcfcf;
+    border-radius: 50%;
+    display: inline-block;
+    height: 24px;
+    margin-left: 8px;
+    position: relative;
+    vertical-align: middle;
+    width: 24px; }
+    .meeting__wizard__icon-wrapper:before {
+      background: #cfcfcf;
+      border-radius: 50%;
+      color: #ffffff;
+      content: "";
+      display: none;
+      font-size: 18px;
+      font-weight: bold;
+      height: 100%;
+      line-height: 1.1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      text-align: center; }
+  .meeting__wizard--step1 .meeting__wizard__item:nth-child(1) .meeting__wizard__icon-wrapper:before {
+    background: #03a9f4;
+    display: block; }
+  .meeting__wizard--step2 .meeting__wizard__item:nth-child(1) .meeting__wizard__icon-wrapper {
+    border-color: #35B86B; }
+    .meeting__wizard--step2 .meeting__wizard__item:nth-child(1) .meeting__wizard__icon-wrapper:before {
+      background: #35B86B;
+      content: "\2713";
+      display: block; }
+  .meeting__wizard--step2 .meeting__wizard__item:nth-child(2) .meeting__wizard__icon-wrapper:before {
+    display: block;
+    background: #03a9f4; }
+  .meeting__wizard--step3 .meeting__wizard__item:nth-child(1) .meeting__wizard__icon-wrapper {
+    border-color: #35B86B; }
+    .meeting__wizard--step3 .meeting__wizard__item:nth-child(1) .meeting__wizard__icon-wrapper:before {
+      background: #35B86B;
+      content: "\2713";
+      display: block; }
+  .meeting__wizard--step3 .meeting__wizard__item:nth-child(2) .meeting__wizard__icon-wrapper {
+    border-color: #35B86B; }
+    .meeting__wizard--step3 .meeting__wizard__item:nth-child(2) .meeting__wizard__icon-wrapper:before {
+      background: #35B86B;
+      content: "\2713";
+      display: block; }
+  .meeting__wizard--step3 .meeting__wizard__item:nth-child(3) .meeting__wizard__icon-wrapper:before {
+    display: block;
+    background: #03a9f4; }
+
+.meeting__invitees-table {
+  border: 1px solid #DFDFDF;
+  border-collapse: collapse;
+  direction: rtl;
+  margin-top: 5px;
+  text-align: right;
+  width: 100%; }
+  .meeting__invitees-table td, .meeting__invitees-table th {
+    text-align: right !important; }
+  .meeting__invitees-table__delete-btn {
+    width: 40px !important; }
+  .meeting__invitees-table__empty-td {
+    padding: 40px !important; }

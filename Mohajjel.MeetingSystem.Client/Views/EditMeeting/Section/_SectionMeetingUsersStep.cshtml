@@ -1,0 +1,130 @@
+﻿<div id="usersStep" class="app__hide">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+
+                <div class="col-xs-12">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            دسته بندی کاربران و افزودن به لیست شرکت کنندگان
+                        </label>
+                        <div id="userTypeComboParent">
+                            @{ Html.RenderPartial("~/Views/EditMeeting/MeetingUsersSection/UserTypeCombo.cshtml"); }
+                        </div>
+                        <div class="app__form-error app__hide" id="userTypeComboError">
+                            برای مشاهده لیست کاربران جهت افزودن به لیست شرکت ‌کنندگان در جلسه، نوع دسته بندی را انتخاب نمایید
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="app__grid-wrapper" id="userGridParent">
+                        @{ Html.RenderPartial("~/Views/EditMeeting/MeetingUsersSection/UserGrid.cshtml"); }
+                    </div>
+
+                    <div id="outsideUserForm" class="app__hide">
+                        <div class="app__form-item">
+                            <label class="app__form-label">نام مدعو</label>
+
+                            @Html.DevExpress().TextBox(settings =>
+                            {
+                                settings.Name = "outsideUserFirstNameTextBox";
+                                settings.Properties.NullText = "نام مدعو را وارد نمایید";
+                                settings.Properties.ClientSideEvents.KeyUp =
+                                    "motorsazanClient.editMeeting.handleOutsideUserFirstNameTextBoxKeyUp";
+                            }).GetHtml()
+
+                            <div class="app__form-error app__hide" id="outsideUserFirstNameTextBoxError">
+                                نام مدعو وارد نشده است
+                            </div>
+                        </div>
+
+                        <div class="app__form-item">
+                            <label class="app__form-label">نام خانوادگی مدعو</label>
+                            @Html.DevExpress().TextBox(settings =>
+                            {
+                                settings.Name = "outsideUserLastNameTextBox";
+                                settings.Properties.NullText = "نام خانوادگی مدعو را وارد نمایید";
+                                settings.Properties.ClientSideEvents.KeyUp =
+                                    "motorsazanClient.editMeeting.handleOutsideUserLastNameTextBoxKeyUp";
+                            }).GetHtml()
+                            <div class="app__form-error app__hide" id="outsideUserLastNameTextBoxError">
+                                نام خانوادگی مدعو وارد نشده است
+                            </div>
+                        </div>
+
+                        <div class="app__form-item">
+                            <label class="app__form-label">سمت سازمانی مدعو</label>
+                            @Html.DevExpress().TextBox(settings =>
+                            {
+                                settings.Name = "outsideUserTitleTextBox";
+                                settings.Properties.NullText = "سمت سازمانی مدعو را وارد نمایید";
+                                settings.Properties.ClientSideEvents.KeyUp =
+                                    "motorsazanClient.editMeeting.handleOutsideUserTitleTextBoxKeyUp";
+                            }).GetHtml()
+                            <div class="app__form-error app__hide" id="outsideUserTitleTextBoxError">
+                                سمت سازمانی مدعو وارد نشده است
+                            </div>
+                        </div>
+
+                        <div class="app__form-item">
+                            <label class="app__form-label">نام سازمان</label>
+                            @Html.DevExpress().TextBox(settings =>
+                            {
+                                settings.Name = "outsideUserOrganizationTextBox";
+                                settings.Properties.NullText = "نام سازمان را وارد نمایید";
+                                settings.Properties.ClientSideEvents.KeyUp =
+                                    "motorsazanClient.editMeeting.handleOutsideUserOrganizationTextBoxKeyUp";
+                            }).GetHtml()
+                            <div class="app__form-error app__hide" id="outsideUserOrganizationTextBoxError">
+                                نام سازمان وارد نشده است
+                            </div>
+                        </div>
+
+                        <div class="app__form-item app__form-item--action">
+                            @Html.DevExpress().Button(settings =>
+                            {
+                                settings.Name = "addOutsideUserInfoBtn";
+                                settings.Text = "افزودن کاربر";
+                                settings.UseSubmitBehavior = false;
+                                settings.EnableClientSideAPI = true;
+                                settings.ClientSideEvents.Click = 
+                                    "motorsazanClient.editMeeting.handleAddOutsideUserInfoBtnClick";
+                            }).GetHtml()
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <label  class="app__form-label">
+                لیست شرکت کنندگان
+            </label>
+            <p>
+                <b>توجه:</b> لیست تا ثبت نهایی جلسه قابلیت ویرایش دارد
+            </p>
+            <div class="app__grid-wrapper">
+                <table class="dxgvControl_MaterialCompact dxgv meeting__invitees-table">
+                    <thead>
+                    <tr>
+                        <th class="dxgvHeader_MaterialCompact">نام و نام خانوادگی</th>
+                        <th class="dxgvHeader_MaterialCompact">امور/سمت</th>
+                        <th class="dxgvHeader_MaterialCompact">عملیات</th>
+                    </tr>
+                    </thead>
+                    <tbody id="inviteesUserTable">
+                    <tr>
+                        <td colspan="3" class="dxgv meeting__invitees-table__empty-td">
+                            کاربری انتخاب نشده است
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@using DevExpress.Web.ASPxRichEdit
+
+<div class="col-xs-12 col-md-12">
+    <section class="app__section">
+
+        <div class="app__section__header">
+            نمایش اقدامات براساس تاریخ
+            @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+        </div>
+
+        <div class="app__section__body row">
+
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="app__form-item ">
+                    <label class="app__form-label">
+                        بازه زمانی
+                    </label>
+                    <div id="filterFormDateComboParent">
+                        @{ Html.RenderPartial("~/Views/MyAction/FilterForm/FilterFormDateCombo.cshtml");}
+                    </div>
+                    <div class="app__form-error app__hide" id="filterFormDateComboError">
+                        بازه زمانی انتخاب نشده است
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-8 col-lg-8 app__hide" id="filterFormDateComboSpecialDateDesign">
+
+                    <div class="col-xs-12 col-md-6 col-lg-6" id="filterFormPeriodStartDatePickerParent">
+                        <div class="app__form-item">
+                            <label class="app__form-label">
+                                از تاریخ
+                            </label>
+                            <div>
+                                <input type="text" class="app__form-datepicker"
+                                       id="filterFormPeriodStartDatePicker"
+                                       placeholder="از تاریخ"
+                                       data-mddatetimepicker="true"
+                                       data-englishnumber="true"
+                                       data-targetdateselector="#filterFormPeriodStartDatePicker" />
+                            </div>
+                            <div class="app__form-error app__hide" id="filterFormPeriodStartDatePickerError">
+                                شروع بازه زمانی انتخاب نشده است
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6 col-lg-6" id="filterFormPeriodEndDatePickerParent">
+                        <div class="app__form-item">
+                            <label class="app__form-label">
+                                تا تاریخ
+                            </label>
+                            <div>
+                                <input type="text" class="app__form-datepicker"
+                                       id="filterFormPeriodEndDatePicker"
+                                       placeholder="تا تاریخ"
+                                       data-mddatetimepicker="true"
+                                       data-englishnumber="true"
+                                       data-targetdateselector="#filterFormPeriodEndDatePicker" />
+                            </div>
+                            <div class="app__form-error app__hide" id="filterFormPeriodEndDatePickerError">
+                                پایان بازه زمانی انتخاب نشده است
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-xs-12 col-md-4 pull-left">
+                    <div class="filter-form__action-wrapper" id="showActionsListBtnDesign">
+                        @Html.DevExpress().Button(settings =>
+                        {
+                            settings.Name = "showUsersActionsListBtn";
+                            settings.Text = "نمایش لیست اقدامات";
+                            settings.UseSubmitBehavior = false;
+                            settings.EnableClientSideAPI = true;
+                            settings.Width = Unit.Percentage(100);
+                            settings.Styles.CssPostfix = "filter-form__btn";
+                            settings.ClientSideEvents.Click = "motorsazanClient.myAction.showUsersActionsListBtnClick";
+                        }).GetHtml()
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+</div>

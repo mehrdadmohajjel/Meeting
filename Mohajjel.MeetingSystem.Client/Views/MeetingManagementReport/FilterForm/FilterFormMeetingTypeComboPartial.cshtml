@@ -1,0 +1,22 @@
+﻿@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "filterFormMeetingTypeCombo";
+        settings.Properties.ClientInstanceName = "filterFormMeetingTypeCombo";
+        settings.Properties.NullText = "نوع را انتخاب نمایید.";
+        settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Left;
+        settings.Width = Unit.Percentage(100);
+        settings.SelectedIndex = -1;
+        settings.Properties.DropDownWidth = 100;
+        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+        settings.Properties.CallbackPageSize = 30;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.TextFormatString = "{0}";
+        settings.Properties.ValueType = typeof(int);
+        settings.Properties.Items.Add("همه موارد", 0);
+        settings.Properties.Items.Add("موارد اقدام شده", 1);
+        settings.Properties.Items.Add("موارد اقدام نشده", 2);
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "motorsazanClient.meetingManagementReport.handlefilterFormMeetingTypeComboIndexChanged";
+
+    }
+    ).GetHtml()

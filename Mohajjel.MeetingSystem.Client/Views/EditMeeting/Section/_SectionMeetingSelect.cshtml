@@ -1,0 +1,15 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب جلسه
+            </label>
+            <div id="getDabirActiveMeetingComboParent">
+                @{Html.RenderAction("GetDabirActiveMeetingCombo", "EditMeeting");}
+            </div>
+            <div class="app__form-error app__hide" id="getDabirActiveMeetingComboError">
+                جلسه ای انتخاب نشده است
+            </div>
+        </div>
+    </div>
+</div>

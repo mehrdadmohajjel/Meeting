@@ -1,0 +1,73 @@
+﻿@using System.Drawing
+
+<div class="row app__hide" id="detailDiv">
+    <div class="app__form-item ">
+        <div class="col-md-6 col-lg-6 col-xs-6" style="font-size:12px;">
+            شماره جلسه :
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-6 " id="meetingNumberLblParent">
+            @Html.DevExpress().Label(settings =>
+            {
+                settings.Name = "meetingNumberLbl";
+                settings.ClientEnabled = false;
+                settings.ControlStyle.Font.Bold = true;
+                settings.RightToLeft = DefaultBoolean.False;
+                settings.DisabledStyle.BackColor = Color.Transparent;
+                settings.DisabledStyle.ForeColor = Color.Red;
+                settings.ControlStyle.Wrap = DefaultBoolean.True;
+            }).GetHtml()
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-6" style="font-size:12px;">
+            تاریخ برگزاری جلسه :
+        </div>
+        <div class="col-md-6 col-lg-6 col-xs-6 app--danger" style="font-size:12px;">
+            @Html.DevExpress().Label(settings =>
+            {
+                settings.Name = "dateLbl";
+                settings.ClientEnabled = false;
+                settings.ControlStyle.Font.Bold = true;
+                settings.RightToLeft = DefaultBoolean.False;
+                settings.DisabledStyle.BackColor = Color.Transparent;
+                settings.DisabledStyle.ForeColor = Color.Red;
+                settings.ControlStyle.Wrap = DefaultBoolean.True;
+            }).GetHtml()
+        </div>
+        <div class="col-md-12 col-lg-12  col-xs-12" style="font-size:12px;">
+            موضوع :
+        </div>
+        <div class="col-md-12 col-lg-12 col-xs-12 app--danger" style="font-size:12px;">
+            @Html.DevExpress().Label(settings =>
+            {
+                settings.Name = "meetingSubjectLbl";
+                settings.ClientEnabled = false;
+                settings.ControlStyle.Font.Bold = true;
+                settings.RightToLeft = DefaultBoolean.False;
+                settings.DisabledStyle.BackColor = Color.Transparent;
+                settings.DisabledStyle.ForeColor = Color.Red;
+                settings.ControlStyle.Wrap = DefaultBoolean.True;
+            }).GetHtml()
+
+        </div>
+
+    </div>
+
+    <div class="app__form-item ">
+        <div class="col-md-12 col-lg-12 col-xs-12" style="font-size:12px;">
+            دستور جلسه :
+        </div>
+        <div class="col-md-12 col-lg-12 col-xs-12 app--danger" style="font-size:12px;">
+            @Html.DevExpress().Label(settings =>
+            {
+                settings.Name = "aqnedaLbl";
+                settings.ClientEnabled = false;
+                settings.ControlStyle.Font.Bold = true;
+                settings.RightToLeft = DefaultBoolean.False;
+                settings.DisabledStyle.BackColor = Color.Transparent;
+                settings.DisabledStyle.ForeColor = Color.Red;
+                settings.ControlStyle.Wrap = DefaultBoolean.True;
+            }).GetHtml()
+
+        </div>
+    </div>
+</div>
+<br />

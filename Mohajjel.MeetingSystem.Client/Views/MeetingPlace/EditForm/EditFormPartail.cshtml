@@ -1,0 +1,41 @@
+﻿
+<div class="row">
+
+    <div class="col-xs-12 col-md-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                عنوان محل برگزاری جلسه
+            </label>
+            <div id="addFormMeetingPlaceNameParent">
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "editFormMeetingPlaceName";
+                    settings.Properties.NullText = "عنوان محل برگزاری جلسه";
+                    settings.Properties.ClientSideEvents.KeyUp =
+                        "motorsazanClient.meetingPlace.handleEditFormMeetingPlaceKeyUp";
+                }).GetHtml()
+
+            </div>
+            <div class="app__form-error app__hide" id="editFormMeetingPlaceNameError">
+                عنوان محل برگزاری جلسه وارد نشده است
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-md-6 col-lg-6 filter-form__action-wrapper pull-left">
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "addEditBtn";
+            settings.Text = "ویرایش";
+            settings.UseSubmitBehavior = false;
+            settings.EnableClientSideAPI = true;
+            settings.Styles.CssPostfix = "add-form__btn";
+            settings.Width = Unit.Percentage(100);
+            settings.ClientSideEvents.Click =
+                "motorsazanClient.meetingPlace.editMeetingPlace";
+        }).GetHtml()
+    </div>
+
+
+</div>

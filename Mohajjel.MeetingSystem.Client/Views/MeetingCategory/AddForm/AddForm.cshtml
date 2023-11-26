@@ -1,0 +1,77 @@
+﻿    <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب امور
+            </label>
+            <div id="addFormDepartmentComboParent">
+                @Html.Action("GetDepartmentList", "MeetingCategory")
+            </div>
+            <div class="app__form-error app__hide" id="addFormDepartmentComboError">
+                امور  انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-md-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                موضوع جلسه
+            </label>
+            <div id="addFormCategoryNameParent">
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "addFormCategoryName";
+                    settings.Properties.NullText = "موضوع جلسه";
+                    settings.Properties.ClientSideEvents.KeyUp =
+                        "motorsazanClient.meetingCategory.handleAddFormCategoryNameKeyUp";
+                }).GetHtml()
+
+            </div>
+            <div class="app__form-error app__hide" id="addFormCategoryNameError">
+                موضوع جلسه وارد نشده است
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                کد موضوع
+            </label>
+            <div id="addFormCategoryNameParent">
+                @Html.DevExpress().TextBox(
+                TXTsettings =>
+                {
+                    TXTsettings.Name = "addFormCategoryCode";
+                    TXTsettings.Properties.ClientInstanceName = "addFormCategoryCode";
+                    TXTsettings.Width = Unit.Percentage(100);
+                    TXTsettings.ReadOnly = false;
+                    TXTsettings.ClientEnabled = false;
+                }
+                ).GetHtml()
+
+            </div>
+            <div class="app__form-error app__hide" id="addFormFaultDescriptionError">
+                کد موضوع تولید نشده است
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 filter-form__action-wrapper" >
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "addSaveBtn";
+            settings.Text = "ثبت";
+            settings.UseSubmitBehavior = false;
+            settings.EnableClientSideAPI = true;
+            settings.Styles.CssPostfix = "add-form__btn";
+            settings.Width = Unit.Percentage(100);
+            settings.ClientSideEvents.Click =
+                "motorsazanClient.meetingCategory.addMeetingCategory";
+        }).GetHtml()
+    </div>
+    
+
+    </div>

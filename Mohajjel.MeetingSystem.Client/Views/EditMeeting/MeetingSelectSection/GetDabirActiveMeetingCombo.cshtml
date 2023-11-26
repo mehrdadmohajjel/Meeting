@@ -1,0 +1,36 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.EditMeeting.OutputGetDabirActiveMeeting[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "getDabirActiveMeetingCombo";
+
+        settings.CallbackRouteValues = new { Controller = "EditMeeting", Action = "GetDabirActiveMeetingCombo" };
+        settings.Width = Unit.Percentage(100);
+
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "جلسه مورد نظر را انتخاب نمایید";
+        settings.SelectedIndex = -1;
+        settings.Properties.CallbackPageSize = 500;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+
+        settings.Properties.ValueField = "MeetingId";
+        settings.Properties.ValueType = typeof(long);
+
+        settings.Properties.Columns.Add("Subject", " موضوع جلسه", Unit.Percentage(60));
+        settings.Properties.Columns.Add("MeetingNumber", "شماره جلسه", Unit.Percentage(20));
+        settings.Properties.Columns.Add("PersianMeetingDate", "تاریخ جلسه", Unit.Percentage(20));
+
+        settings.Properties.TextFormatString = "{0} - {1}";
+
+        settings.Properties.ItemStyle.Wrap = DefaultBoolean.True;
+        settings.Properties.CaptionCellStyle.Wrap = DefaultBoolean.True;
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.editMeeting.handleGetDabirActiveMeetingComboSelectedIndexChanged";
+
+    }).BindList(Model).GetHtml()
+

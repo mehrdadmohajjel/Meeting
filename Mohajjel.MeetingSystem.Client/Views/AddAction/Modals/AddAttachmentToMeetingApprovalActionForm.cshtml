@@ -1,0 +1,33 @@
+﻿@{
+    var meetingApprovalActionId = (long)ViewBag.MeetingApprovalActionId;
+}
+
+<div class="col-xs-12 col-md-12 col-lg-12">
+
+
+    <div id="meetingApprovalActionAttachmentUploaderDesign" class="app__section__body">
+
+        <div class="row">
+            <div class="col-xs-12 col-md-10 col-md-offset-1">
+                <div class="app__form-item" id="meetingApprovalActionAttachmentUploaderParent">
+                    <label class="app__form-label">
+                        فایل ضمیمه
+                    </label>
+                    <div id="meetingApprovalActionAttachmentUploader">
+                        <div id="avatarUploader"></div>
+                    </div>
+                    <div class="app__form-error app__hide" id="meetingApprovalActionAttachmentUploaderError">
+                        فایل ضمیمه انتخاب نشده است
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <form id="meetingApprovalActionAttachmentGridParent" class="app__grid-wrapper">
+            @{ Html.RenderAction("FillMeetingApprovalActionAttachmentGrid", "AddAction", new { meetingApprovalActionId = meetingApprovalActionId });}
+        </form>
+    </div>
+</div>

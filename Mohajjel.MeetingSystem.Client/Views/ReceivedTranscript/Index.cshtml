@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "مشاهده رونوشت‌های دریافتی";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/ReceivedTranscript/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/ReceivedTranscript/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-4 col-lg-4" id="helpDiv">
+            @{Html.RenderPartial("~/Views/ReceivedTranscript/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            @{ Html.RenderPartial("~/Views/ReceivedTranscript/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="myReceivedTranscriptGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/ReceivedTranscript/Grid/MyReceivedTranscriptGrid.cshtml");}
+    </form>
+</div>
+

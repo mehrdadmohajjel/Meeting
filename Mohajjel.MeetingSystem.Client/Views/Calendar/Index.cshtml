@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "تقویم جلسات";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/Calendar/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/Calendar/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-5 col-lg-5">
+            @{ Html.RenderPartial("~/Views/Calendar/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+
+
+    <div class="col-xs-7 col-md-7">
+        <section class="app__section">
+            <div class="app__section__header">
+                لیست جلسات
+                @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+            </div>
+            <div class="app__section__body">
+                <form id="meetingGridParent" class="app__grid-wrapper">
+                    @{ Html.RenderPartial("~/Views/Calendar/Grid/MeetingGrid.cshtml");}
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+

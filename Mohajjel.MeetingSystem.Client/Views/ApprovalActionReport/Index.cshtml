@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "مشاهده اقدامات انجام یافته من";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/ApprovalActionReport/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/ApprovalActionReport/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-4 col-lg-4" id="helpDiv">
+            @{Html.RenderPartial("~/Views/ApprovalActionReport/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            @{ Html.RenderPartial("~/Views/ApprovalActionReport/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="approvalActionReportGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/ApprovalActionReport/Grid/ApprovalActionReportGrid.cshtml");}
+    </form>
+</div>
+

@@ -1,0 +1,66 @@
+﻿@Html.ActionLink("صفحه اصلی", "Index", "home", null, new { @class = "nav__item" })
+
+<div class="nav__item nav__item--has-submenu">
+    کارتابل من
+    <div class="nav__submenu">
+
+        @Html.ActionLink("ثبت اقدامات مربوط به مصوبات", "Index", "AddAction", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("مدیریت جلسات من", "Index", "ManageMyMeetings", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("مشاهده اقدامات انجام یافته من", "Index", "MyAction", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("مشاهده رونوشت های دریافتی", "Index", "ReceivedTranscript", null, new { @class = "nav__link" })
+
+    </div>
+</div>
+
+
+@Html.ActionLink("تقویم جلسات", "Index", "Calendar", null, new { @class = "nav__item" })
+
+
+<div class="nav__item nav__item--has-submenu">
+    عملیات دبیر جلسات
+    <div class="nav__submenu">
+
+        @Html.ActionLink("تعریف و ثبت جلسه", "Index", "AddMeeting", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("ثبت مصوبات جلسه", "Index", "AddApproval", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("ثبت اقدامات مربوط به مصوبات ", "Index", "AddAction", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("ویرایش و مدیریت جلسات", "Index", "EditMeeting", null, new { @class = "nav__link" })
+
+    </div>
+</div>
+
+
+<div class="nav__item nav__item--has-submenu">
+    گزارشات
+    <div class="nav__submenu">
+
+        @Html.ActionLink("گزارش جلسات براساس دسته بندی جلسات", "Index", "MeetingCategoryReport", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("گزارش جلسات بر اساس امور برگزار کننده", "Index", "MeetingReportByDepartment", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("گزارش اقدامات انجام گرفته مربوط به صورت جلسات", "Index", "ApprovalActionReport", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("گزارش مدیریتی صورتجلسات", "Index", "MeetingManagementReport", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("گزارش کلی جلسات شرکت", "Index", "ReportAllMeetinglist", null, new { @class = "nav__link" })
+
+    </div>
+</div>
+
+
+<div class="nav__item nav__item--has-submenu">
+    تعاریف اولیه
+    <div class="nav__submenu">
+
+        @Html.ActionLink("مدیریت موضوعات جلسات", "Index", "MeetingCategory", null, new { @class = "nav__link" })
+
+        @Html.ActionLink("تعریف محل برگزاری جلسات", "Index", "MeetingPlace", null, new { @class = "nav__link" })
+
+    </div>
+</div>
+

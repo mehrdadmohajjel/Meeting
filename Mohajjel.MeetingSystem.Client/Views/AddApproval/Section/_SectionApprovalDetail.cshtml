@@ -1,0 +1,42 @@
+﻿<div class="row">
+    <div class="col-xs-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                نوع عملیات
+            </label>
+            @Html.DevExpress().RadioButtonList(setting =>
+            {
+                setting.Name = "operationTypeRadioButton";
+                setting.Properties.ClientInstanceName = "operationTypeRadioButton";
+                setting.Width = Unit.Percentage(100);
+                setting.RightToLeft = DefaultBoolean.True;
+                setting.Properties.RepeatLayout = RepeatLayout.Table;
+                setting.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                setting.Properties.RepeatColumns = 2;
+
+                setting.Properties.Items.Add(new ListEditItem { Text = "ثبت مصوبه", Value = 1, Selected = true });
+                setting.Properties.Items.Add(new ListEditItem { Text = "ثبت توضیحات و موارد مطروحه", Value = 2 });
+
+                setting.ControlStyle.Border.BorderStyle = BorderStyle.None;
+
+                setting.Properties.ClientSideEvents.SelectedIndexChanged = "motorsazanClient.addApproval.showApprovalType";
+                setting.Properties.ClientSideEvents.Init = "motorsazanClient.addApproval.approvalTypeInit";
+
+                setting.SelectedIndex = 0;
+
+            }).GetHtml()
+
+            <div class="app__form-error app__hide" id="operationTypeRadioButtonError">
+                لطفا نوع مورد ثبتی را مشخص کنید
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row app__hide" id="approvalDiv">
+    @Html.Partial("~/Views/AddApproval/Modals/ApprovalDescription.cshtml", "AddApproval")
+</div>
+
+<div class="row app__hide" id="descriptionDiv">
+    @Html.Partial("~/Views/AddApproval/Modals/MeetingExtraDescription.cshtml", "AddApproval")
+</div>

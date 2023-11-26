@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "گزارش جلسات براساس دسته بندی جلسات";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/MeetingCategoryReport/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/MeetingCategoryReport/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-5 col-lg-5" id="helpDiv">
+            @{Html.RenderPartial("~/Views/MeetingCategoryReport/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-7">
+            @{ Html.RenderPartial("~/Views/MeetingCategoryReport/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="meetingCategoryReportGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/MeetingCategoryReport/Grid/MeetingCategoryReportGrid.cshtml");}
+    </form>
+</div>
+

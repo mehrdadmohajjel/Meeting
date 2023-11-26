@@ -1,0 +1,46 @@
+﻿@using DevExpress.Web.ASPxHtmlEditor
+
+@Html.DevExpress().HtmlEditor(settings =>
+{
+    settings.Name = "addFormNewActionDescriptionHtmlEditor";
+    settings.CallbackRouteValues = new { Controller = "AddAction", Action = "AddFormNewActionDescriptionHtmlEditorPartial" };
+
+    settings.Width = Unit.Percentage(100);
+    settings.Height = Unit.Pixel(300);
+
+    settings.Settings.AllowPreview = false;
+    settings.Settings.AllowHtmlView = false;
+    settings.SettingsHtmlEditing.AllowScripts = false;
+    settings.SettingsHtmlEditing.AllowIFrames = false;
+    settings.SettingsHtmlEditing.AllowFormElements = true;
+    settings.SettingsHtmlEditing.UpdateDeprecatedElements = false;
+    settings.SettingsHtmlEditing.EnterMode = HtmlEditorEnterMode.Default;
+    settings.SettingsHtmlEditing.AllowedDocumentType = AllowedDocumentType.Both;
+    settings.Settings.AllowCustomColorsInColorPickers = false;
+
+    settings.ControlStyle.Wrap = DefaultBoolean.True;
+
+    settings.Settings.AllowInsertDirectImageUrls = false;
+    settings.Settings.AllowSaveBinaryImageToServer = false;
+
+    settings.RightToLeft = DefaultBoolean.True;
+    settings.ControlStyle.Font.Name = "Tahoma"; 
+
+    settings.Toolbars.Add(toolbar =>
+    {
+        toolbar.Items.Add(new ToolbarBoldButton());
+        toolbar.Items.Add(new ToolbarItalicButton());
+        toolbar.Items.Add(new ToolbarUnderlineButton());
+        toolbar.Items.Add(new ToolbarStrikethroughButton());
+        toolbar.Items.Add(new ToolbarJustifyRightButton());
+        toolbar.Items.Add(new ToolbarJustifyCenterButton());
+        toolbar.Items.Add(new ToolbarJustifyLeftButton());
+        toolbar.Items.Add(new ToolbarJustifyFullButton());
+        toolbar.Items.Add(new ToolbarBackColorButton());
+        toolbar.Items.Add(new ToolbarFontColorButton());
+    });
+
+    settings.ClientSideEvents.LostFocus =
+        "motorsazanClient.addAction.handelAddFormNewActionDescriptionHtmlEditorLostFocus";
+
+}).GetHtml()

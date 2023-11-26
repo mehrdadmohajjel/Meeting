@@ -1,0 +1,23 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.MeetingPlace.OutputGetAllMeetingPlace[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "getAllMeetingPlaceCombo";
+        settings.CallbackRouteValues = new { Controller = "EditMeeting", Action = "GetAllMeetingPlaceCombo" };
+        settings.Properties.NullText = "محل برگزاری جلسه را انتخاب نمایید";
+        settings.Width = Unit.Percentage(100);
+        settings.SelectedIndex = -1;
+        settings.Properties.CallbackPageSize = 500;
+        settings.SettingsLoadingPanel.Text = "در حال جستجو ...";
+
+        settings.Properties.TextField = "Name";
+
+        settings.Properties.ValueField = "MeetingPlaceId";
+        settings.Properties.ValueType = typeof(int);
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.editMeeting.handleGetAllMeetingPlaceComboSelectedIndexChange";
+
+    }).BindList(Model).GetHtml()
+

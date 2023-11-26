@@ -1,0 +1,201 @@
+﻿<div class="col-xs-12">
+    <div class="app__form-item">
+        <label class="app__form-label">
+            متن مصوبه
+        </label>
+        @Html.DevExpress().Memo(textBoxEditSettings =>
+        {
+            textBoxEditSettings.Name = "descriptionTxt";
+            textBoxEditSettings.Properties.ClientInstanceName = "descriptionTxt";
+            textBoxEditSettings.Properties.NullText = "لطفا متن مصوبه را وارد کنید";
+            textBoxEditSettings.Properties.CaptionSettings.HorizontalAlign = EditorCaptionHorizontalAlign.Right;
+            textBoxEditSettings.Width = Unit.Percentage(100);
+            textBoxEditSettings.ControlStyle.Font.Size = 10;
+            textBoxEditSettings.Properties.ClientSideEvents.KeyUp =
+                "motorsazanClient.addApproval.handleDescriptionTxtKeyUp";
+
+        }).GetHtml()
+        <div class="app__form-error app__hide" id="descriptionTxtError">
+            لطفا متن مصوبه را مشخص کنید
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 " style="padding-bottom: 20px;">
+    <div class="app__form-item">
+        <label class="app__form-label">
+            نوع عملیات
+        </label>
+        @Html.DevExpress().RadioButtonList(setting =>
+        {
+            setting.Name = "userType";
+            setting.Properties.ClientInstanceName = "userType";
+            setting.Width = Unit.Percentage(100);
+            setting.SelectedIndex = 1;
+            setting.RightToLeft = DefaultBoolean.True;
+            setting.Properties.RepeatLayout = RepeatLayout.Table;
+            setting.Properties.RepeatDirection = RepeatDirection.Horizontal;
+            setting.Properties.RepeatColumns = 2;
+            setting.Properties.Items.Add(new ListEditItem { Text = "کاربر مدعو", Value = 0 });
+            setting.Properties.Items.Add(new ListEditItem { Text = "کاربران داخل سازمان", Value = 1 });
+            setting.ControlStyle.Border.BorderStyle = BorderStyle.None;
+            setting.ShowModelErrors = true;
+
+            setting.Properties.ClientSideEvents.SelectedIndexChanged = "motorsazanClient.addApproval.showUserType";
+            setting.Properties.ClientSideEvents.Init = "motorsazanClient.addApproval.showUserTypeInit";
+        }).GetHtml()
+
+        <div class="app__form-error app__hide" id="userTypeError">
+            نوع عملیات مشخص نشده است
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-lg-12 app__hide" id="internalUserDiv">
+    <div class="app__form-item">
+        <label class="app__form-label">انتخاب مسئول اجرا</label>
+        <div id="meetingPeopleComboParent">
+            @{Html.RenderAction("ApprovalMeetingAttendListCombo", "AddApproval");}
+        </div>
+
+        <div class="app__form-error app__hide" id="meetingPeopleComboError">
+            فردی انتخاب نشده است
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    
+    <div class="col-lg-6 col-md-6 col-xs-12 " style="vertical-align:bottom;">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                تاریخ مهلت اجرا
+            </label>
+            <input type="text" class="app__form-datepicker"
+                   id="deadLineDate"
+                   placeholder="تاریخ مهلت اجرای مصوبه را انتخاب کنید"
+                   data-mddatetimepicker="true"
+                   data-englishnumber="true"
+                   data-targetdateselector="#deadLineDate" />
+            <div class="app__form-error app__hide" id="deadLineDateError">
+                تاریخ مهلت اجرای مصوبه  را انتخاب کنید
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-xs-12" style="vertical-align:bottom;">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                نحوه اطلاع رسانی
+            </label>
+            @Html.DevExpress().ComboBox(settings =>
+            {
+                settings.Name = "messageType";
+                settings.Properties.ClientInstanceName = "messageType";
+                settings.Width = Unit.Percentage(100);
+                settings.SelectedIndex = -1;
+                settings.Properties.NullText = " نوع اطلاع رسانی به فرد مسئول را انتخاب نمایید";
+                settings.Properties.ValueType = typeof(Int32);
+                settings.Properties.Items.Add("بدون ارسال پیام", 0);
+                settings.Properties.Items.Add("ارسال پیام سیستمی", 2);
+                settings.Properties.ClientSideEvents.SelectedIndexChanged =
+                    "motorsazanClient.addApproval.handleMessageTypeComboSelectedIndexChanged";
+            }).GetHtml()
+            <div class="app__form-error app__hide" id="messageTypeError">
+                لطفا نحوه اطلاع رسانی را مشخص کنید
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12" id="externalUserDiv">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <label class="app__form-label">
+            نام
+        </label>
+
+        @Html.DevExpress().TextBox(txtSettings =>
+        {
+            txtSettings.Name = "meetingExternalUserNameTxt";
+            txtSettings.Properties.ClientInstanceName = "meetingExternalUserNameTxt";
+            txtSettings.Width = Unit.Percentage(100);
+            txtSettings.Properties.NullText = "نام کاربر مدعو را وارد کنید";
+            txtSettings.Properties.ClientSideEvents.KeyUp =
+                "motorsazanClient.addApproval.handleMeetingExternalUserNameTxtKeyUp";
+        }).GetHtml()
+
+        <div class="app__form-error app__hide" id="meetingExternalUserNameTxtError">
+            لطفا نام کاربر مدعو  را مشخص کنید
+        </div>
+
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        <label class="app__form-label">
+            نام خانوادگی
+        </label>
+        @Html.DevExpress().TextBox(txtSettings =>
+        {
+            txtSettings.Name = "meetingExternalUserFamilyTxt";
+            txtSettings.Properties.ClientInstanceName = "meetingExternalUserFamilyTxt";
+            txtSettings.Width = Unit.Percentage(100);
+            txtSettings.Properties.NullText = "نام خانوادگی کاربر مدعو را وارد کنید";
+            txtSettings.Properties.ClientSideEvents.KeyUp =
+                "motorsazanClient.addApproval.handleMeetingExternalUserFamilyTxtKeyUp";
+        }).GetHtml()
+        <div class="app__form-error app__hide" id="meetingExternalUserFamilyTxtError">
+            لطفا نام خانوادگی کاربر مدعو  را مشخص کنید
+        </div>
+
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        سمت سازمانی
+        @Html.DevExpress().TextBox(txtSettings =>
+        {
+            txtSettings.Name = "meetingSematTxt";
+            txtSettings.Properties.ClientInstanceName = "meetingSematTxt";
+            txtSettings.Width = Unit.Percentage(100);
+            txtSettings.Properties.NullText = "سِمَت کاربر مدعو را وارد کنید";
+            txtSettings.Properties.ClientSideEvents.KeyUp =
+                "motorsazanClient.addApproval.handleMeetingSematTxtKeyUp";
+        }).GetHtml()
+
+        <div class="app__form-error app__hide" id="meetingSematTxtError">
+            لطفا سِمَت سازمانی کاربر مدعو  را مشخص کنید
+        </div>
+
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+        نام سازمان
+        @Html.DevExpress().TextBox(txtSettings =>
+        {
+            txtSettings.Name = "meetingSazmanNameTxt";
+            txtSettings.Properties.ClientInstanceName = "meetingSazmanNameTxt";
+            txtSettings.Width = Unit.Percentage(100);
+            txtSettings.Properties.NullText = "نام سازمان کاربر مدعو را وارد کنید";
+            txtSettings.Properties.ClientSideEvents.KeyUp =
+                "motorsazanClient.addApproval.handleMeetingSazmanNameTxtKeyUp";
+        }).GetHtml()
+
+        <div class="app__form-error app__hide" id="meetingSazmanNameTxtError">
+            لطفا نام سازمان کاربر مدعو را مشخص کنید
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-12 col-md-6 col-xs-12 pull-left" style="vertical-align: bottom;padding-top: 30px;
+">
+    @Html.DevExpress().Button(settings =>
+    {
+        settings.Name = "insertToApprovalDatasetBtn";
+        settings.Width = Unit.Percentage(100);
+        settings.Text = "افزودن به لیست ";
+        settings.Images.Image.IconID = IconID.ActionsAdd16x16;
+        settings.UseSubmitBehavior = false;
+        settings.ClientSideEvents.Click = "motorsazanClient.addApproval.onClickAddToApproval";
+    }).GetHtml()
+</div>
+
+

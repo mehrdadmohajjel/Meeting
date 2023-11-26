@@ -1,0 +1,28 @@
+﻿
+<section class="app__section app__section--success">
+    <div class="app__section__header">
+        مصوبات ثبت شده
+        @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+    </div>
+    
+    <div class="alert-info text-justify">
+        بعد از ثبت مصوبات جدید توسط پنل سمت راست، و تغییر توضیحات از طریق کلیک بر روی ستون مصوبه در لیست سمت چپ، از دکمه "ثبت نهایی و ارسال پیام" به جهت ارسال پیام به افراد ثبت شده استفاده نمایید.
+        <div style="text-align: left;">
+            @Html.DevExpress().Button(settings =>
+            {
+                settings.Name = "finalApprovalDataSetBtn";
+                settings.Width = Unit.Percentage(30);
+                settings.Text = "ثبت نهایی و ارسال پیام";
+                settings.Images.Image.IconID = IconID.ActionsAdd16x16;
+                settings.UseSubmitBehavior = false;
+                settings.ClientSideEvents.Click = "motorsazanClient.addApproval.onClickFinilizeApproval";
+            }).GetHtml()
+        </div>
+    </div>
+
+    <form class="app__section__body app__grid-wrapper" id="meetingApprovalGridParent">
+        @{ Html.RenderAction("MeetingApprovalGrid", "AddApproval");}
+    </form>
+</section>
+
+

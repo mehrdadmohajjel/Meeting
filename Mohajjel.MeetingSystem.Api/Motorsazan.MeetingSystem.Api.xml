@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mohajjel.MeetingSystem.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddApprovalController.GetAllMeetingApprovalsByMeetingId(Mohajjel.MeetingSystem.Shared.Models.Input.AddApproval.InputGetAllMeetingApprovalsByMeetingId)">
+            <summary>
+            دریافت لیست مصوبات جلسه
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddApprovalController.AddApprovals(Mohajjel.MeetingSystem.Shared.Models.Input.AddApproval.InputAddApprovals)">
+            <summary>
+            ثبت مصوبه جدید 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddApprovalController.AddDescriptionToMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.AddApproval.InputAddDescriptionToMeeting)">
+            <summary>
+            ثبت توضیحات و موارد مطروحه جدید 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddApprovalController.DeleteMeetingApprovals(Mohajjel.MeetingSystem.Shared.Models.Input.AddApproval.InputDeleteMeetingApprovals)">
+            <summary>
+             حذف مصوبه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddApprovalController.UpdateApproval(Mohajjel.MeetingSystem.Shared.Models.Input.AddApproval.InputUpdateApproval)">
+            <summary>
+            ویرایش مصوبه جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddApprovalController.SetMeetingApprovalStatusAndSendMessage(Mohajjel.MeetingSystem.Shared.Models.Input.AddApproval.InputSetMeetingApprovalStatusAndSendMessage)">
+            <summary>
+             ثبت وضعیت و ارسال پیام
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.GetCategoryDetailByCategoryId(Mohajjel.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetCategoryDetailByCategoryId)">
+            <summary>
+            دریافت جزئیات شاخه بندی جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.GetEmployeeListByDepartmentId(Mohajjel.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetEmployeeListByDepartmentId)">
+            <summary>
+            لیست افراد جهت حضور در شرکت بوسیله کد امور 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.GetUserListWithOrganizationLevel(Mohajjel.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetUserListWithOrganizationLevel)">
+            <summary>
+            لیست  پرسنلی مدیران، روسا و سرپرستان 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.GetUserList">
+            <summary>
+            لیست  پرسنلی  
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.GetMeetingNumberByMeetingCategoryId(Mohajjel.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetMeetingNumberByMeetingCategoryId)">
+            <summary>
+            دریافت آخرین شماره جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.FinilizeNewMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.AddMeeting.InputFinilizeNewMeeting)">
+            <summary>
+            ثبت جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddMeetingController.GetEmployeeListByUserTypeForMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetEmployeeListByUserTypeForMeeting)">
+            <summary>
+            دریافت لیست کاربران براساس نوع کاربران  برای سیستم جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.CalendarController.GetAllYears">
+            <summary>
+                دریافت لیست سال ها از جدول تقویم
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.CalendarController.GetSpecialMonthDays(Mohajjel.MeetingSystem.Shared.Models.Input.Calendar.InputGetSpecialMonthDays)">
+            <summary>
+                دریافت روزهای یک ماه از یک سال
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.CalendarController.GetSpecialDay(Mohajjel.MeetingSystem.Shared.Models.Input.Calendar.InputGetSpecialDay)">
+            <summary>
+                دریافت یک روز خاص از تقویم
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.EditMeetingController.GetDabirActiveMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetDabirActiveMeeting)">
+            <summary>
+            لیست جلسات فعال کاربر 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.EditMeetingController.GetUserMeetingByMeetingId(Mohajjel.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetUserMeetingByMeetingId)">
+            <summary>
+            دریافت جلسات ثبت شده کاربر
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.EditMeetingController.GetAllAttendPeopleByMeetingId(Mohajjel.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetAllAttendPeopleByMeetingId)">
+            <summary>
+            دریافت افراد حاضر در جلسه
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.EditMeetingController.EditMyMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.EditMeeting.InputEditMyMeeting)">
+            <summary>
+            ویرایش جلسه جدید 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.EditMeetingController.GetEmployeeListByUserTypeAndMeetingIdForMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetEmployeeListByUserTypeAndMeetingIdForMeeting)">
+            <summary>
+            دریافت لیست کاربران براساس نوع کاربران و شناسه جلسات برای سیستم جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryReportController.GetMeetingReportByCategoryId(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingCategoryReport.InputGetMeetingReportByCategoryId)">
+            <summary>
+                لیست جلسات براساس دسته بندی جلسات 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.HomeController.GetMeetingApprovalForEachUserByUserId(Mohajjel.MeetingSystem.Shared.Models.Input.Home.InputGetMeetingApprovalForEachUserByUserId)">
+            <summary>
+                دریافت لیست جلسات تایید شده برای هر نفر
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.HomeController.GetMeetingStatistics(Mohajjel.MeetingSystem.Shared.Models.Input.Home.InputGetMeetingStatistics)">
+            <summary>
+                دریافت اطلاعات آماری جلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingManagementReportController.GetMeetingReportByDepartmentId(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingManagementReport.InputGetUserDepartmentListWithPermission)">
+            <summary>
+                لیست امور هر فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingManagementReportController.GetUserDepartmentList(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingManagementReport.InputGetUserDepartmentList)">
+            <summary>
+                لیست امور هر فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingManagementReportController.GetMeetingManagementReportByDate(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingManagementReport.InputGetMeetingManagementReportByDate)">
+            <summary>
+               گزارش مدیریتی صورتجلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingReportByDepartmentController.GetMeetingReportByDepartmentId(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingReportByDepartment.InputGetMeetingReportByDepartmentId)">
+            <summary>
+                لیست جلسات براساس امور 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ReceivedTranscriptController.GetMeetingTranscriptListByDate(Mohajjel.MeetingSystem.Shared.Models.Input.ReceivedTranscript.InputGetMeetingTranscriptListByDate)">
+            <summary>
+                دریافت لیست رونوشت ها
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MyActionController.GetUsersActionsList(Mohajjel.MeetingSystem.Shared.Models.Input.MyAction.InputGetUsersActionsList)">
+            <summary>
+                دریافت لیست اقدامات یک پرسنل
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.GetUserActiveMeeting(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputGetUserActiveMeeting)">
+            <summary>
+            لیست جلسات فعالی که مصوبه ای با مسئولیت کاربر مورد نظر دارد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.GetUserMeetingApprovalListByMeetingIdAndUserId(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputGetUserMeetingApprovalListByMeetingIdAndUserId)">
+            <summary>
+            دریافت لیست مصوبات مربوط به یک کاربر مشخص از یک جلسه مشخص 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.AddNewActionToApproval(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputAddNewActionToApproval)">
+            <summary>
+                ثبت اقدام جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.GetActionListByApprovalId(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputGetActionListByApprovalId)">
+            <summary>
+                 دریافت لیست اقدامات یک مصوبه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.DeleteApprovalAction(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputDeleteApprovalAction)">
+            <summary>
+             حذف اکشن مبتنی بر مصوبه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.GetMeetingApprovalActionAttachmentFile(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputGetMeetingApprovalActionAttachmentFile)">
+            <summary>
+                 دریافت ضمیمه عملیات تصویب جلسات 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.AddUploadAttachmentToMeetingApprovalAction(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputAddUploadAttachmentToMeetingApprovalAction)">
+            <summary>
+                آپلود ضمیمه به عملیات تصویب جلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.RemoveMeetingApprovalActionDocument(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputRemoveMeetingApprovalActionDocument)">
+            <summary>
+            حذف آپلود ضمیمه های عملیات تصویب جلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.AddActionController.GetMeetingApprovalActionAttachmentFileById(Mohajjel.MeetingSystem.Shared.Models.Input.AddAction.InputGetMeetingApprovalActionAttachmentFileById)">
+            <summary>
+                 دریافت فایل ضمیمه بر اساس شناسه داکیومنت 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetUserMeetingByDate(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetUserMeetingByDate)">
+            <summary>
+            لیست جلسات یک فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.AddMeetingNewObservation(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputAddMeetingNewObservation)">
+            <summary>
+                افزودن بازدید کننده جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetMeetingObservationListByMeetingId(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetMeetingObservationListByMeetingId)">
+            <summary>
+            لیست جلسات یک فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetAllUsersList(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetAllUsersList)">
+            <summary>
+            دریافت لیست تمامی کاربران 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetMeetingTranscriptList(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetMeetingTranscriptList)">
+            <summary>
+            لیست رونوشت های ارسالی 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.AddNewMeetingTranscript(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputAddNewMeetingTranscript)">
+            <summary>
+                ثبت رونوشت جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.ManageMyMeetingsController.DeleteMeetingTranscript(Mohajjel.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputDeleteMeetingTranscript)">
+            <summary>
+             حذف اکشن مبتنی بر مصوبه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingPlaceController.AddPlace(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingPlace.InputAddPlace)">
+            <summary>
+                افزودن محل برگزاری جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingPlaceController.EditMeetingPlace(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingPlace.InputEditMeetingPlace)">
+            <summary>
+                ویرایش محل برگزاری جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingPlaceController.DeleteMeetingPlace(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingPlace.InputDeleteMeetingPlace)">
+            <summary>
+                حذف محل برگزاری جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingPlaceController.GetAllMeetingPlace">
+            <summary>
+                دریافت همه محل های برگزاری  جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.AddNewCategory(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingCategory.InputAddNewCategory)">
+            <summary>
+                ثبت شاخه جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.EditCategory(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingCategory.InputEditCategory)">
+            <summary>
+                ویرایش موضوع جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.DeleteMeetingCategory(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingCategory.InputDeleteMeetingCategory)">
+            <summary>
+                ویرایش موضوع جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.GetAllMeetingCategory">
+            <summary>
+                دریافت همه موضوعات جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.GetAllMeetingCategoryByUserDepartmentId(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingCategory.InputGetAllMeetingCategoryByUserDepartmentId)">
+            <summary>
+                دریافت موضوعات جلسات امور
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.GetDepartmentCategoryList(Mohajjel.MeetingSystem.Shared.Models.Input.MeetingCategory.InputGetDepartmentCategoryList)">
+            <summary>
+                دریافت موضوعات جلسات امور کاربر
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.GetLastCategoryCode">
+            <summary>
+            آخرین کد موضوع جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Controllers.MeetingCategoryController.GetAllMainDepartment">
+            <summary>
+                دریافت همه موضوعات جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mohajjel.MeetingSystem.Api.Utilities.QueryResultExtensions">
+            <summary>
+            Contains extension methods of QueryResult type
+            </summary>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Utilities.QueryResultExtensions.ToOutput``1(Mohajjel.MeetingSystem.Api.Models.Base.QueryResult)">
+            <summary>
+            Extension method that converts QueryResult to a TOutput
+            </summary>
+            <typeparam name="TOutput">Target class of conversion</typeparam>
+            <param name="queryResult">Source class of conversion</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mohajjel.MeetingSystem.Api.Utilities.SqlParameterExtensions">
+            <summary>
+            Contains extension methods of related to SqlParameter
+            </summary>
+        </member>
+        <member name="M:Mohajjel.MeetingSystem.Api.Utilities.SqlParameterExtensions.ToSqlParameters``1(``0)">
+            <summary>
+            Convert input to list of SqlParameters
+            </summary>
+            <param name="input">Source of conversion</param>
+            <typeparam name="TInput">Must be a input class</typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

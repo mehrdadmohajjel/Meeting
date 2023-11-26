@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "مشاهده اقدامات انجام یافته من";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/MyAction/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/MyAction/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-4 col-lg-4" id="helpDiv">
+            @{Html.RenderPartial("~/Views/MyAction/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            @{ Html.RenderPartial("~/Views/MyAction/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="myActionGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/MyAction/Grid/MyActionGrid.cshtml");}
+    </form>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "مدیریت جلسات من";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/ManageMyMeetings/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/ManageMyMeetings/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-5 col-lg-5" id="helpDiv">
+            @{Html.RenderPartial("~/Views/ManageMyMeetings/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-7">
+            @{ Html.RenderPartial("~/Views/ManageMyMeetings/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="manageMyMeetingsGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/ManageMyMeetings/Grid/ManageMyMeetingsGrid.cshtml");}
+    </form>
+</div>
+

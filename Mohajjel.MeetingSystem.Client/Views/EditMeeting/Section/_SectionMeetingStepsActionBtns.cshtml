@@ -1,0 +1,33 @@
+﻿<div class="app__form-item app__form-item--action">
+    @Html.DevExpress().Button(settings =>
+    {
+        settings.Name = "stepBackBtn";
+        settings.Text = "مرحله قبل";
+        settings.UseSubmitBehavior = false;
+        settings.EnableClientSideAPI = true;
+        settings.RenderMode = ButtonRenderMode.Secondary;
+        settings.ClientVisible = false;
+        settings.ClientSideEvents.Click = 
+            "motorsazanClient.editMeeting.handleStepBackBtnClick";
+    }).GetHtml()
+
+    @Html.DevExpress().Button(settings =>
+    {
+        settings.Name = "stepNextBtn";
+        settings.Text = "مرحله بعد";
+        settings.UseSubmitBehavior = false;
+        settings.EnableClientSideAPI = true;
+        settings.ClientSideEvents.Click = 
+            "motorsazanClient.editMeeting.handleStepNextBtnClick";
+    }).GetHtml()
+    
+    @Html.DevExpress().Button(settings =>
+    {
+        settings.Name = "registerMeetingBtn";
+        settings.Text = "تایید نهایی و ثبت جلسه";
+        settings.UseSubmitBehavior = false;
+        settings.EnableClientSideAPI = true;
+        settings.ClientSideEvents.Click = 
+            "motorsazanClient.editMeeting.editMeeting";
+    }).GetHtml()
+</div>

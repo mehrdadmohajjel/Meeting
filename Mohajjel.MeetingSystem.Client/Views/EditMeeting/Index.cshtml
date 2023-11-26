@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "ویرایش جلسه";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/EditMeeting/Js/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/EditMeeting/Css/Index.min.css" rel="Stylesheet" />
+}
+
+<div class="row">
+
+    <div class="col-xs-12 col-lg-9">
+        <section class="app__section">
+
+            <div class="app__section__header">
+                ویرایش جلسه
+                @{Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml");}
+            </div>
+
+            <div class="app__section__body">
+                @{Html.RenderPartial("~/Views/EditMeeting/Section/_SectionMeetingSelect.cshtml");}
+                @{Html.RenderPartial("~/Views/EditMeeting/Section/_SectionMeetingInfoStep.cshtml");}
+                @{Html.RenderPartial("~/Views/EditMeeting/Section/_SectionMeetingUsersStep.cshtml");}
+                @{Html.RenderPartial("~/Views/EditMeeting/Section/_SectionMeetingFinalizeStep.cshtml");}
+                @{Html.RenderPartial("~/Views/EditMeeting/Section/_SectionMeetingStepsActionBtns.cshtml");}
+            </div>
+
+        </section>
+    </div>
+    @{Html.RenderPartial("~/Views/EditMeeting/Help/_SectionWizardHelp.cshtml");}
+</div>

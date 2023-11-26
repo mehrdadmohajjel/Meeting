@@ -1,0 +1,94 @@
+﻿
+@using System.Drawing
+@model Mohajjel.MeetingSystem.Shared.Models.Output.ManageMyMeetings.OutputGetMeetingObservationListByMeetingId[]
+
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "showViewerGrid";
+    settings.CallbackRouteValues = new { Controller = "MeetingReportByDepartment", Action = "FillShowViewerGrid" };
+
+    settings.ClientSideEvents.BeginCallback = "motorsazanClient.meetingManagementReport.handleShowViewerGridBeginCallback";
+
+    settings.Width = Unit.Percentage(100);
+
+    settings.Settings.ShowFilterRow = true;
+    settings.Settings.ShowFilterRowMenu = true;
+    settings.SettingsBehavior.AllowFocusedRow = true;
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+    settings.Settings.AutoFilterCondition = AutoFilterCondition.Contains;
+
+    settings.EnableRowsCache = false;
+
+    settings.KeyFieldName = "MeetingObservationListId";
+
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "RowIndex";
+        column.Caption = "ردیف";
+        column.Width = Unit.Pixel(60);
+        column.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+        column.Settings.AllowAutoFilter = DefaultBoolean.False;
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "UserName";
+        column.Caption = "مشاهده کننده";
+        column.Width = Unit.Percentage(40);
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "PersianCreationDate";
+        column.Caption = "تاریخ مشاهده";
+        column.Width = Unit.Percentage(20);
+    });
+
+    settings.Columns.Add(column =>
+    {
+
+        column.FieldName = "MeetingTime";
+        column.Caption = "زمان";
+
+        column.UnboundType = DevExpress.Data.UnboundColumnType.DateTime;
+    });
+
+    settings.CustomUnboundColumnData = (s, e) =>
+    {
+        if (e.Column.FieldName == "RowIndex")
+        {
+            e.Value = e.ListSourceRowIndex + 1;
+        }
+
+        if (e.Column.FieldName == "MeetingTime")
+        {
+            e.Value = ((DateTime)(e.GetListSourceFieldValue("CreationDateTime"))).ToShortTimeString();
+        }
+    };
+
+    settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+
+    settings.Styles.Header.Wrap = DefaultBoolean.True;
+    settings.Styles.Cell.Wrap = DefaultBoolean.True;
+
+
+    settings.SettingsSearchPanel.Visible = true;
+    settings.SettingsSearchPanel.EditorNullTextDisplayMode = NullTextDisplayMode.Unfocused;
+    settings.SettingsSearchPanel.AllowTextInputTimer = false;
+    settings.SettingsText.SearchPanelEditorNullText = "عبارت مورد نظر جهت جستجو در لیست را وارد کنید";
+
+
+    settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+    settings.SettingsPager.Summary.Text = "صفحه‌ {0} از {1} - تعداد کل : {2}";
+    settings.SettingsPager.Summary.Position = PagerButtonPosition.Right;
+    settings.SettingsPager.AlwaysShowPager = false;
+    settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+    settings.SettingsText.EmptyDataRow = "موردی یافت نشد";
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSize = 50;
+    settings.SettingsPager.PageSizeItemSettings.Caption = "تعداد سطر :";
+    settings.SettingsPager.PageSizeItemSettings.Items = new[] { "50", "100", "200", "500" };
+
+}).Bind(Model).GetHtml()

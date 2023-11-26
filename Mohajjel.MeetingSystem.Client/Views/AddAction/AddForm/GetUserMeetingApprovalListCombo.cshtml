@@ -1,0 +1,38 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.AddAction.OutputGetUserMeetingApprovalListByMeetingIdAndUserId[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "addFormGetUserMeetingApprovalListCombo";
+
+        settings.CallbackRouteValues = new { Controller = "AddAction", Action = "GetUserMeetingApprovalListByMeetingIdAndUserIdCombo" };
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "مصوبه مورد نظر را انتخاب نمایید";
+        settings.SelectedIndex = -1;
+        settings.Properties.CallbackPageSize = 200;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+
+        settings.Properties.ValueField = "MeetingApprovalId";
+        settings.Properties.ValueType = typeof(long);
+
+        settings.Properties.Columns.Add("Description", "شرح مصوبه", Unit.Percentage(40));
+        settings.Properties.Columns.Add("FarsiDeadlineDate", "مهلت اجرا", Unit.Percentage(15));
+        settings.Properties.Columns.Add("FirstName", "نام مسئول", Unit.Percentage(10));
+        settings.Properties.Columns.Add("LastName", "نام خانوادگی مسئول", Unit.Percentage(20));
+
+        settings.Properties.TextFormatString = "{0} {1} - {2} -{3} ";
+
+        settings.Properties.ItemStyle.Wrap = DefaultBoolean.True;
+        settings.Properties.CaptionCellStyle.Wrap = DefaultBoolean.True;
+        settings.Properties.PopupHorizontalAlign = PopupHorizontalAlign.RightSides;
+        //settings.Properties.DropDownButton.Position = ButtonsPosition.Right;
+
+        settings.Properties.DropDownWidth = Unit.Pixel(500);
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.addAction.handleAddFormGetUserMeetingApprovalListComboSelectedIndexChanged";
+
+    }).BindList(Model).GetHtml()

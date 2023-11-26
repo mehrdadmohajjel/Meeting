@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "گزارش جلسات براساس امور";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/MeetingReportByDepartment/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/MeetingReportByDepartment/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-5 col-lg-5" id="helpDiv">
+            @{Html.RenderPartial("~/Views/MeetingReportByDepartment/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-7">
+            @{ Html.RenderPartial("~/Views/MeetingReportByDepartment/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="meetingReportGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/MeetingReportByDepartment/Grid/MeetingReportGrid.cshtml");}
+    </form>
+</div>
+

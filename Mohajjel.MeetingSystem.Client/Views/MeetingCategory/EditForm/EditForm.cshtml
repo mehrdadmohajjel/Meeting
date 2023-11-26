@@ -1,0 +1,78 @@
+﻿
+<div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب امور
+            </label>
+            <div id="editFormDepartmentComboParent">
+                @{Html.RenderAction("GetDepartmentListForEdit", "MeetingCategory");}
+
+            </div>
+            <div class="app__form-error app__hide" id="editFormDepartmentComboError">
+                امور  انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-md-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                موضوع جلسه
+            </label>
+            <div id="editFormCategoryNameParent">
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "editFormCategoryName";
+                    settings.Properties.NullText = "موضوع جلسه";
+                    settings.Properties.ClientSideEvents.KeyUp =
+                        "motorsazanClient.meetingCategory.handleEditFormCategoryNameKeyUp";
+                }).GetHtml()
+
+            </div>
+            <div class="app__form-error app__hide" id="editFormCategoryNameError">
+                موضوع جلسه وارد نشده است
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                کد موضوع
+            </label>
+            <div id="editFormCategoryCodeParent">
+                @Html.DevExpress().TextBox(
+                TXTsettings =>
+                {
+                    TXTsettings.Name = "editFormCategoryCode";
+                    TXTsettings.Width = Unit.Percentage(100);
+                    TXTsettings.ReadOnly = false;
+                    TXTsettings.ClientEnabled = false;
+                }
+                ).GetHtml()
+
+            </div>
+            <div class="app__form-error app__hide" id="editFormCategoryCodeError">
+                کد موضوع تولید نشده است
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-6 filter-form__action-wrapper pull-left" >
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "editSaveBtn";
+            settings.Text = "ویرایش";
+            settings.UseSubmitBehavior = false;
+            settings.EnableClientSideAPI = true;
+            settings.Styles.CssPostfix = "add-form__btn";
+            settings.Width = Unit.Percentage(100);
+            settings.ClientSideEvents.Click =
+                "motorsazanClient.meetingCategory.editMeetingCategory";
+        }).GetHtml()
+    </div>
+    
+
+</div>

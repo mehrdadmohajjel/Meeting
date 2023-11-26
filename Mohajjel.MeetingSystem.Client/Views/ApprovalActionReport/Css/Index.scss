@@ -1,0 +1,11 @@
+﻿@import "../../../Client/Src/Scss/Utilities/Variabels";
+
+.p-help {
+    text-align: justify;
+}
+
+@media screen and (min-width: 992px) {
+    .popover {
+        right: -150px !important;
+    }
+}

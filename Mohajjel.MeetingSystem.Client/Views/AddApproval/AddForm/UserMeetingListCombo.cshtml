@@ -1,0 +1,68 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.EditMeeting.OutputGetDabirActiveMeeting[]
+
+@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "userMeetingListCombo";
+    settings.Properties.ClientInstanceName = "userMeetingListCombo";
+    settings.CallbackRouteValues = new { Controller = "AddApproval", Action = "UserMeetingListCombo" };
+    settings.Properties.NullText = "جلسه مورد نظر را انتخاب نمایید";
+    settings.Width = Unit.Percentage(100);
+    settings.SelectedIndex = -1;
+    settings.Properties.DropDownWidth = Unit.Percentage(100);
+    settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+    settings.Properties.CallbackPageSize = 50;
+    settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+    settings.Properties.IncrementalFilteringDelay = 20;
+    settings.SettingsLoadingPanel.Text = "در حال جستجو ...";
+
+    settings.Properties.ItemStyle.Wrap = DefaultBoolean.True;
+    settings.Properties.CaptionCellStyle.Wrap = DefaultBoolean.True;
+
+    settings.Properties.PopupHorizontalAlign = PopupHorizontalAlign.RightSides;
+
+    settings.Properties.TextField = "MeetingNumber";
+    settings.Properties.TextFormatString = "{0} - {1}";
+    settings.Properties.ValueField = "MeetingId";
+    settings.Properties.ValueType = typeof(long);
+
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "motorsazanClient.addApproval.handleUserMeetingListComboSelectedIndexChanged";
+    settings.Properties.Columns.Add("MeetingNumber", "شماره جلسه", Unit.Percentage(20));
+    settings.Properties.Columns.Add("Subject", " موضوع جلسه", Unit.Percentage(50));
+    settings.Properties.Columns.Add("ShowName", "وضعیت جلسه", Unit.Percentage(20));
+
+    settings.Properties.Columns.Add("MeetingCategoryId", "MeetingCategoryId").Visible = false;
+    settings.Properties.Columns.Add("Agenda", "Agenda").Visible = false;
+    settings.Properties.Columns.Add("Type", "Type").Visible = false;
+    settings.Properties.Columns.Add("PersianMeetingDate", "PersianMeetingDate").Visible = false;
+    settings.Properties.Columns.Add("MeetingPlaceId", "MeetingPlaceId").Visible = false;
+    settings.Properties.Columns.Add("DepartmentId", "DepartmentId").Visible = false;
+    settings.Properties.Columns.Add("UserId", "UserId").Visible = false;
+
+    settings.CustomJSProperties = (sender, e) =>
+    {
+        System.Collections.ArrayList Deplist = new System.Collections.ArrayList();
+        System.Collections.ArrayList MeetingPlacelist = new System.Collections.ArrayList();
+        System.Collections.ArrayList Agendalist = new System.Collections.ArrayList();
+        System.Collections.ArrayList MeetingCategoryIdist = new System.Collections.ArrayList();
+        System.Collections.ArrayList Typelist = new System.Collections.ArrayList();
+        System.Collections.ArrayList PersianMeetingDate = new System.Collections.ArrayList();
+
+        MVCxComboBox combo = sender as MVCxComboBox;
+        foreach (ListEditItem item in combo.Items)
+        {
+            Deplist.Add(item.GetFieldValue("DepartmentId"));
+            MeetingPlacelist.Add(item.GetFieldValue("MeetingPlaceId"));
+            Agendalist.Add(item.GetFieldValue("Agenda"));
+            MeetingCategoryIdist.Add(item.GetFieldValue("MeetingCategoryId"));
+            Typelist.Add(item.GetFieldValue("Type"));
+            PersianMeetingDate.Add(item.GetFieldValue("PersianMeetingDate"));
+        }
+        e.Properties["cpHiddenDepartment"] = Deplist;
+        e.Properties["cpHiddenMeetingPlace"] = MeetingPlacelist;
+        e.Properties["cpHiddenMeetingAgenda"] = Agendalist;
+        e.Properties["cpHiddenMeetingCategory"] = MeetingCategoryIdist;
+        e.Properties["cpHiddenMeetingType"] = Typelist;
+        e.Properties["cpHiddenPersianMeetingDate"] = PersianMeetingDate;
+    };
+
+}).BindList(Model).GetHtml()

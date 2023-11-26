@@ -1,0 +1,32 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.MeetingCategory.OutputGetAllMeetingCategory[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "filterFormGetAllMeetingCategoryCombo";
+
+        settings.CallbackRouteValues = new { Controller = "MeetingCategoryReport", Action = "GetAllMeetingCategoryCombo" };
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "دسته بندی را انتخاب نمایید";
+        settings.SelectedIndex = -1;
+        settings.Properties.CallbackPageSize = 200;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+
+        settings.Properties.ValueField = "MeetingCategoryId";
+        settings.Properties.ValueType = typeof(long);
+
+        settings.Properties.TextField = "Title";
+
+        settings.Properties.ItemStyle.Wrap = DefaultBoolean.True;
+        settings.Properties.CaptionCellStyle.Wrap = DefaultBoolean.True;
+
+
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.meetingCategoryReport.handleFilterFormGetAllMeetingCategoryComboSelectedIndexChanged";
+
+    }).BindList(Model).GetHtml()
+
+

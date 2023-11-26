@@ -1,0 +1,138 @@
+﻿@import "../../../Client/Src/Scss/Utilities/Index";
+
+.meeting {
+
+    @include bem-e("wizard") {
+        list-style-type: none;
+        margin: 0 auto;
+        padding: 0;
+
+        @include bem-e("item") {
+            display: block;
+            font-size: 14px;
+            margin-bottom: $padding-default;
+            position: relative;
+        }
+
+        @include bem-e("icon-wrapper") {
+            $size: 24px;
+
+            background: $color-border;
+            border: 5px solid $color-border;
+            border-radius: 50%;
+            display: inline-block;
+            height: $size;
+            margin-left: $padding-default / 2;
+            position: relative;
+            vertical-align: middle;
+            width: $size;
+
+            &:before {
+                background: $color-border;
+                border-radius: 50%;
+                color: $color-white;
+                content: "";
+                display: none;
+                font-size: 18px;
+                font-weight: bold;
+                height: 100%;
+                line-height: 1.1;
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @include bem-m("step1") {
+            .meeting__wizard__item:nth-child(1) {
+                .meeting__wizard__icon-wrapper {
+                    &:before {
+                        background: $color-info;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        @include bem-m("step2") {
+            .meeting__wizard__item:nth-child(1) {
+                .meeting__wizard__icon-wrapper {
+                    border-color: $color-success;
+
+                    &:before {
+                        background: $color-success;
+                        content: "\2713";
+                        display: block;
+                    }
+                }
+            }
+
+            .meeting__wizard__item:nth-child(2) {
+                .meeting__wizard__icon-wrapper {
+                    &:before {
+                        display: block;
+                        background: $color-info;
+                    }
+                }
+            }
+        }
+
+        @include bem-m("step3") {
+            .meeting__wizard__item:nth-child(1) {
+                .meeting__wizard__icon-wrapper {
+                    border-color: $color-success;
+
+                    &:before {
+                        background: $color-success;
+                        content: "\2713";
+                        display: block;
+                    }
+                }
+            }
+
+            .meeting__wizard__item:nth-child(2) {
+                .meeting__wizard__icon-wrapper {
+                    border-color: $color-success;
+
+                    &:before {
+                        background: $color-success;
+                        content: "\2713";
+                        display: block;
+                    }
+                }
+            }
+
+            .meeting__wizard__item:nth-child(3) {
+                .meeting__wizard__icon-wrapper {
+                    &:before {
+                        display: block;
+                        background: $color-info;
+                    }
+                }
+            }
+        }
+    }
+
+    @include bem-e("invitees-table") {
+        border: 1px solid #DFDFDF;
+        border-collapse: collapse;
+        direction: rtl;
+        margin-top: 5px;
+        text-align: right;
+        width: 100%;
+
+        td, th {
+            text-align: right !important;
+        }
+
+        @include bem-e("delete-btn") {
+            width: 40px !important;
+        }
+
+        @include bem-e("empty-td") {
+            padding: 40px !important;
+        }
+    }
+}

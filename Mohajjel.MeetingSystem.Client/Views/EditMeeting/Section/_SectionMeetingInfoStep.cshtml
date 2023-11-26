@@ -1,0 +1,198 @@
+﻿<div id="baseInfoStep" class="">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    موضوع جلسه
+                </label>
+                @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "titleInputTextBox";
+                    settings.Properties.ClientInstanceName = "titleInputTextBox";
+                    settings.Properties.NullText = "موضوع یا عنوان جلسه را وارد نمایید";
+                    settings.Properties.ClientSideEvents.KeyUp =
+                        "motorsazanClient.editMeeting.handleTitleInputTextBoxKeyUp";
+
+                }).GetHtml()
+                <div class="app__form-error app__hide" id="titleInputTextBoxError">
+                    لطفا موضوع یا عنوان جلسه را وارد نمایید
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    محدوده جلسه
+                </label>
+                <div id="areaComboParent">
+                    @{Html.RenderPartial("~/Views/EditMeeting/MeetingInfoSection/AreaCombo.cshtml");}
+                </div>
+                <div class="app__form-error app__hide" id="areaComboError">
+                    محدوده جلسه انتخاب نشده است
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    امور برگزارکننده
+                </label>
+                <div id="getAllMainDepartmentComboParent">
+                    @{Html.RenderAction("GetAllMainDepartmentCombo", "EditMeeting");}
+                </div>
+                <div class="app__form-error app__hide" id="getAllMainDepartmentComboError">
+                    امور برگزارکننده جلسه انتخاب نشده است
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    دسته‌بندی
+                </label>
+                <div id="getAllMeetingCategoryComboParent">
+                    @{Html.RenderAction("GetAllMeetingCategoryCombo", "EditMeeting");}
+                </div>
+                <div class="app__form-error app__hide" id="getAllMeetingCategoryComboError">
+                    دسته‌بندی جلسه انتخاب نشده است
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    محل برگزاری جلسه
+                </label>
+                <div id="getAllMeetingPlaceComboParent">
+                    @{Html.RenderAction("GetAllMeetingPlaceCombo", "EditMeeting");}
+                </div>
+                <div class="app__form-error app__hide" id="getAllMeetingPlaceComboError">
+                    محل برگزاری جلسه انتخاب نشده است
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    تاریخ
+                </label>
+                <input type="text" class="app__form-datepicker"
+                       id="persianMeetingDatePicker"
+                       placeholder="تاریخ برگزاری جلسه را انتخاب کنید"
+                       data-mddatetimepicker="true"
+                       data-englishnumber="true"
+                       data-targetdateselector="#persianMeetingDatePicker" />
+                <div class="app__form-error app__hide" id="persianMeetingDatePickerError">
+                    تاریخ برگزاری به درستی انتخاب نشده است
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            زمان شروع
+                        </label>
+                        @Html.DevExpress().TextBox(
+                            settings =>
+                            {
+                                settings.Properties.CaptionSettings.HorizontalAlign = EditorCaptionHorizontalAlign.Right;
+                                settings.Name = "startTimeInputTextBox";
+                                settings.Properties.MaskSettings.Mask = "99:99";
+                                settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.None;
+                                settings.Width = Unit.Percentage(100);
+                                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+
+                                settings.Properties.ClientSideEvents.KeyUp =
+                                    "motorsazanClient.editMeeting.handleStartTimeInputTextBoxKeyUp";
+
+                            }).GetHtml()
+
+                        <div class="app__form-error app__hide" id="startTimeInputTextBoxError">
+                            زمان شروع جلسه وارد نشده است
+                        </div>
+                        <div class="app__form-error app__hide" id="startTimeInputTextBoxFormatError">
+                            فرمت زمان شروع جلسه صحیح نیست
+                        </div>
+                        <div class="app__form-error app__hide" id="startTimeInputTextBoxMiniuteFormatError">
+                            مقدار دقیقه بایستی 00 یا 30 باشد
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="app__form-item">
+                        <label class="app__form-label">
+                            زمان پایان
+                        </label>
+                        @Html.DevExpress().TextBox(
+                            settings =>
+                            {
+                                settings.Properties.CaptionSettings.HorizontalAlign = EditorCaptionHorizontalAlign.Right;
+                                settings.Name = "endTimeInputTextBox";
+                                settings.Properties.MaskSettings.Mask = "99:99";
+                                settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.None;
+                                settings.Width = Unit.Percentage(100);
+                                settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+
+                                settings.Properties.ClientSideEvents.KeyUp =
+                                    "motorsazanClient.editMeeting.handleEndTimeInputTextBoxKeyUp";
+
+                            }).GetHtml()
+
+                        <div class="app__form-error app__hide" id="endTimeInputTextBoxError">
+                            زمان پایان جلسه وارد نشده است
+                        </div>
+                        <div class="app__form-error app__hide" id="endTimeInputTextBoxFormatError">
+                            فرمت زمان پایان جلسه صحیح نیست
+                        </div>
+                        <div class="app__form-error app__hide" id="endTimeInputTextBoxMiniuteFormatError">
+                            مقدار دقیقه بایستی 00 یا 30 باشد
+                        </div>
+                        <div class="app__form-error app__hide" id="endTimeBigerThanStartTimeError">
+                            زمان پایان بایستی بزرگتر از زمان شروع باشد
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    دستور جلسه
+                </label>
+
+                @Html.DevExpress().Memo(settings =>
+                {
+                    settings.Name = "descriptionMemo";
+                    settings.Properties.Height = Unit.Pixel(300);
+                    settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+
+                    settings.Properties.ClientSideEvents.KeyUp =
+                        "motorsazanClient.editMeeting.handleDescriptionMemoKeyUp";
+
+                }).GetHtml()
+
+                <div class="app__form-error app__hide" id="descriptionMemoError">
+                    دستور جلسه وارد نشده است
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

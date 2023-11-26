@@ -1,0 +1,32 @@
+﻿<div class="col-xs-12">
+    <div class="app__form-item">
+        <label class="app__form-label">
+            متن موارد مطروح در جلسه
+        </label>
+        @Html.DevExpress().Memo(textBoxEditSettings =>
+        {
+            textBoxEditSettings.Name = "approvalExtraDescriptionTxt";
+            textBoxEditSettings.Properties.ClientInstanceName = "approvalExtraDescriptionTxt";
+            textBoxEditSettings.Width = Unit.Percentage(100);
+            textBoxEditSettings.ControlStyle.Font.Size = 10;
+            textBoxEditSettings.Properties.ClientSideEvents.KeyUp =
+                "motorsazanClient.addApproval.handleApprovalExtraDescriptionTxtKeyUp";
+        }).GetHtml()
+
+        <div class="app__form-error app__hide" id="approvalExtraDescriptionTxtError">
+            لطفا متن موارد مطروح در جلسه را مشخص کنید
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12">
+    @Html.DevExpress().Button(settings =>
+    {
+        settings.Name = "addDescriptionToMeetingBtn";
+        settings.Width = Unit.Percentage(100);
+        settings.Text = "ثبت توضیحات";
+        settings.Images.Image.IconID = IconID.ActionsAdd16x16;
+        settings.UseSubmitBehavior = false;
+        settings.ClientSideEvents.Click = "motorsazanClient.addApproval.onClickAddDescriptionsToMeeting";
+    }).GetHtml()
+</div>

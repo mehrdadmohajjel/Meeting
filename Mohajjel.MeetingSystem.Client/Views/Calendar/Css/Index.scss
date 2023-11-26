@@ -1,0 +1,78 @@
+﻿@import "../../../Client/Src/Scss/Utilities/Index";
+
+.calendar {
+    @include bem-e("table") {
+        border: 1px solid $color-border;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    @include bem-e("header-row") {
+        background: $color-success;
+        color: $color-white;
+    }
+
+    @include bem-e("header-cell") {
+        font-size: 12px;
+        padding: 4px;
+        text-align: center;
+        width: 14.28%;
+    }
+
+    @include bem-e("body-row") {
+        border-bottom: 1px solid $color-border
+    }
+
+    @include bem-e("body-cell") {
+        border: 1px solid $color-border;
+        cursor: pointer;
+        font-size: 11px;
+        padding: 4px;
+        text-align: center;
+        width: 14.28%;
+
+        &:hover {
+            background: $color-border;
+        }
+
+        @include bem-m("holiday") {
+            color: $color-danger;
+
+
+            &:hover {
+                background: $color-danger;
+                color: $color-white;
+            }
+        }
+
+        @include bem-m("active") {
+            color: $color-white;
+            background: $color-primary;
+
+            &:hover {
+                background: $color-primary;
+                color: $color-white;
+            }
+        }
+
+        @include bem-m("disabled") {
+            color: $color-border;
+            cursor: default;
+            opacity: 0.8;
+
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+
+    @include bem-e("day-num") {
+        font-size: 13px;
+        font-weight: bold;
+    }
+}
+
+.month-name{
+    font-size:x-small;
+    font-weight: 900;
+}

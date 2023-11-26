@@ -1,0 +1,29 @@
+﻿@model Mohajjel.MeetingSystem.Shared.Models.Output.MeetingManagementReport.OutputGetUserDepartmentListWithPermission[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "filterFormDepartmentListWithPermissionCombo";
+        settings.Properties.ClientInstanceName = "filterFormDepartmentListWithPermissionCombo";
+        settings.CallbackRouteValues = new { Controller = "MeetingManagementReport", Action = "FilterFormDepartmentComboPartial" };
+        settings.Properties.CaptionSettings.RequiredMarkDisplayMode = EditorRequiredMarkMode.Hidden;
+        settings.Properties.NullText = "امور مربوط را انتخاب نمایید.";
+        settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Left;
+        settings.Width = Unit.Percentage(100);
+        settings.SelectedIndex = -1;
+        settings.Properties.DropDownWidth = Unit.Percentage(100);
+        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+        settings.Properties.CallbackPageSize = 30;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.TextFormatString = "{0}";
+        settings.Properties.ValueType = typeof(long);
+        settings.Properties.ValueField = "DepartmentId";
+        settings.Properties.ValueType = typeof(int);
+        settings.Properties.Columns.Add("DepartmentTitle", "نام", Unit.Percentage(70));
+        settings.Properties.Columns.Add("UnitCode", "کدامور", Unit.Percentage(30));
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = "motorsazanClient.meetingManagementReport.handleDepartmentComboBoxIndexChanged";
+    }
+    ).BindList(Model).GetHtml()
+
+
+

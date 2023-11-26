@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "گزارش مدیریتی صورتجلسات";
+}
+
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/MeetingManagementReport/JS/Index.js"></script>
+}
+
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/MeetingManagementReport/Css/Index.min.css" rel="Stylesheet" />
+}
+<div class="row">
+
+    <div class="app__section__body">
+        <div class="col-sm-12 col-md-5 col-lg-5" id="helpDiv">
+            @{Html.RenderPartial("~/Views/MeetingManagementReport/HelpForm/HelpForm.cshtml");}
+        </div>
+        <div class="col-sm-12 col-md-7 col-lg-7">
+            @{ Html.RenderPartial("~/Views/MeetingManagementReport/FilterForm/FilterForm.cshtml"); }
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-12">
+    <form id="meetingReportGridParent" class="app__grid-wrapper">
+        @{ Html.RenderPartial("~/Views/MeetingManagementReport/Grid/ReportGrid.cshtml");}
+    </form>
+</div>
+

@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Motorsazan.MeetingSystem.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddApprovalController.GetAllMeetingApprovalsByMeetingId(Motorsazan.MeetingSystem.Shared.Models.Input.AddApproval.InputGetAllMeetingApprovalsByMeetingId)">
+            <summary>
+            دریافت لیست مصوبات جلسه
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddApprovalController.AddApprovals(Motorsazan.MeetingSystem.Shared.Models.Input.AddApproval.InputAddApprovals)">
+            <summary>
+            ثبت مصوبه جدید 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddApprovalController.AddDescriptionToMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.AddApproval.InputAddDescriptionToMeeting)">
+            <summary>
+            ثبت توضیحات و موارد مطروحه جدید 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddApprovalController.DeleteMeetingApprovals(Motorsazan.MeetingSystem.Shared.Models.Input.AddApproval.InputDeleteMeetingApprovals)">
+            <summary>
+             حذف مصوبه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddApprovalController.UpdateApproval(Motorsazan.MeetingSystem.Shared.Models.Input.AddApproval.InputUpdateApproval)">
+            <summary>
+            ویرایش مصوبه جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddApprovalController.SetMeetingApprovalStatusAndSendMessage(Motorsazan.MeetingSystem.Shared.Models.Input.AddApproval.InputSetMeetingApprovalStatusAndSendMessage)">
+            <summary>
+             ثبت وضعیت و ارسال پیام
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.GetCategoryDetailByCategoryId(Motorsazan.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetCategoryDetailByCategoryId)">
+            <summary>
+            دریافت جزئیات شاخه بندی جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.GetEmployeeListByDepartmentId(Motorsazan.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetEmployeeListByDepartmentId)">
+            <summary>
+            لیست افراد جهت حضور در شرکت بوسیله کد امور 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.GetUserListWithOrganizationLevel(Motorsazan.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetUserListWithOrganizationLevel)">
+            <summary>
+            لیست  پرسنلی مدیران، روسا و سرپرستان 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.GetUserList">
+            <summary>
+            لیست  پرسنلی  
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.GetMeetingNumberByMeetingCategoryId(Motorsazan.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetMeetingNumberByMeetingCategoryId)">
+            <summary>
+            دریافت آخرین شماره جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.FinilizeNewMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.AddMeeting.InputFinilizeNewMeeting)">
+            <summary>
+            ثبت جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddMeetingController.GetEmployeeListByUserTypeForMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.AddMeeting.InputGetEmployeeListByUserTypeForMeeting)">
+            <summary>
+            دریافت لیست کاربران براساس نوع کاربران  برای سیستم جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.CalendarController.GetAllYears">
+            <summary>
+                دریافت لیست سال ها از جدول تقویم
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.CalendarController.GetSpecialMonthDays(Motorsazan.MeetingSystem.Shared.Models.Input.Calendar.InputGetSpecialMonthDays)">
+            <summary>
+                دریافت روزهای یک ماه از یک سال
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.CalendarController.GetSpecialDay(Motorsazan.MeetingSystem.Shared.Models.Input.Calendar.InputGetSpecialDay)">
+            <summary>
+                دریافت یک روز خاص از تقویم
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.EditMeetingController.GetDabirActiveMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetDabirActiveMeeting)">
+            <summary>
+            لیست جلسات فعال کاربر 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.EditMeetingController.GetUserMeetingByMeetingId(Motorsazan.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetUserMeetingByMeetingId)">
+            <summary>
+            دریافت جلسات ثبت شده کاربر
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.EditMeetingController.GetAllAttendPeopleByMeetingId(Motorsazan.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetAllAttendPeopleByMeetingId)">
+            <summary>
+            دریافت افراد حاضر در جلسه
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.EditMeetingController.EditMyMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.EditMeeting.InputEditMyMeeting)">
+            <summary>
+            ویرایش جلسه جدید 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.EditMeetingController.GetEmployeeListByUserTypeAndMeetingIdForMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.EditMeeting.InputGetEmployeeListByUserTypeAndMeetingIdForMeeting)">
+            <summary>
+            دریافت لیست کاربران براساس نوع کاربران و شناسه جلسات برای سیستم جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryReportController.GetMeetingReportByCategoryId(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingCategoryReport.InputGetMeetingReportByCategoryId)">
+            <summary>
+                لیست جلسات براساس دسته بندی جلسات 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.HomeController.GetMeetingApprovalForEachUserByUserId(Motorsazan.MeetingSystem.Shared.Models.Input.Home.InputGetMeetingApprovalForEachUserByUserId)">
+            <summary>
+                دریافت لیست جلسات تایید شده برای هر نفر
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.HomeController.GetMeetingStatistics(Motorsazan.MeetingSystem.Shared.Models.Input.Home.InputGetMeetingStatistics)">
+            <summary>
+                دریافت اطلاعات آماری جلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingManagementReportController.GetMeetingReportByDepartmentId(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingManagementReport.InputGetUserDepartmentListWithPermission)">
+            <summary>
+                لیست امور هر فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingManagementReportController.GetUserDepartmentList(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingManagementReport.InputGetUserDepartmentList)">
+            <summary>
+                لیست امور هر فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingManagementReportController.GetMeetingManagementReportByDate(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingManagementReport.InputGetMeetingManagementReportByDate)">
+            <summary>
+               گزارش مدیریتی صورتجلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingReportByDepartmentController.GetMeetingReportByDepartmentId(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingReportByDepartment.InputGetMeetingReportByDepartmentId)">
+            <summary>
+                لیست جلسات براساس امور 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ReceivedTranscriptController.GetMeetingTranscriptListByDate(Motorsazan.MeetingSystem.Shared.Models.Input.ReceivedTranscript.InputGetMeetingTranscriptListByDate)">
+            <summary>
+                دریافت لیست رونوشت ها
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MyActionController.GetUsersActionsList(Motorsazan.MeetingSystem.Shared.Models.Input.MyAction.InputGetUsersActionsList)">
+            <summary>
+                دریافت لیست اقدامات یک پرسنل
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.GetUserActiveMeeting(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputGetUserActiveMeeting)">
+            <summary>
+            لیست جلسات فعالی که مصوبه ای با مسئولیت کاربر مورد نظر دارد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.GetUserMeetingApprovalListByMeetingIdAndUserId(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputGetUserMeetingApprovalListByMeetingIdAndUserId)">
+            <summary>
+            دریافت لیست مصوبات مربوط به یک کاربر مشخص از یک جلسه مشخص 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.AddNewActionToApproval(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputAddNewActionToApproval)">
+            <summary>
+                ثبت اقدام جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.GetActionListByApprovalId(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputGetActionListByApprovalId)">
+            <summary>
+                 دریافت لیست اقدامات یک مصوبه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.DeleteApprovalAction(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputDeleteApprovalAction)">
+            <summary>
+             حذف اکشن مبتنی بر مصوبه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.GetMeetingApprovalActionAttachmentFile(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputGetMeetingApprovalActionAttachmentFile)">
+            <summary>
+                 دریافت ضمیمه عملیات تصویب جلسات 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.AddUploadAttachmentToMeetingApprovalAction(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputAddUploadAttachmentToMeetingApprovalAction)">
+            <summary>
+                آپلود ضمیمه به عملیات تصویب جلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.RemoveMeetingApprovalActionDocument(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputRemoveMeetingApprovalActionDocument)">
+            <summary>
+            حذف آپلود ضمیمه های عملیات تصویب جلسات
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.AddActionController.GetMeetingApprovalActionAttachmentFileById(Motorsazan.MeetingSystem.Shared.Models.Input.AddAction.InputGetMeetingApprovalActionAttachmentFileById)">
+            <summary>
+                 دریافت فایل ضمیمه بر اساس شناسه داکیومنت 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetUserMeetingByDate(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetUserMeetingByDate)">
+            <summary>
+            لیست جلسات یک فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.AddMeetingNewObservation(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputAddMeetingNewObservation)">
+            <summary>
+                افزودن بازدید کننده جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetMeetingObservationListByMeetingId(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetMeetingObservationListByMeetingId)">
+            <summary>
+            لیست جلسات یک فرد 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetAllUsersList(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetAllUsersList)">
+            <summary>
+            دریافت لیست تمامی کاربران 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.GetMeetingTranscriptList(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputGetMeetingTranscriptList)">
+            <summary>
+            لیست رونوشت های ارسالی 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.AddNewMeetingTranscript(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputAddNewMeetingTranscript)">
+            <summary>
+                ثبت رونوشت جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.ManageMyMeetingsController.DeleteMeetingTranscript(Motorsazan.MeetingSystem.Shared.Models.Input.ManageMyMeetings.InputDeleteMeetingTranscript)">
+            <summary>
+             حذف اکشن مبتنی بر مصوبه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingPlaceController.AddPlace(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingPlace.InputAddPlace)">
+            <summary>
+                افزودن محل برگزاری جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingPlaceController.EditMeetingPlace(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingPlace.InputEditMeetingPlace)">
+            <summary>
+                ویرایش محل برگزاری جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingPlaceController.DeleteMeetingPlace(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingPlace.InputDeleteMeetingPlace)">
+            <summary>
+                حذف محل برگزاری جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingPlaceController.GetAllMeetingPlace">
+            <summary>
+                دریافت همه محل های برگزاری  جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.AddNewCategory(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingCategory.InputAddNewCategory)">
+            <summary>
+                ثبت شاخه جدید
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.EditCategory(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingCategory.InputEditCategory)">
+            <summary>
+                ویرایش موضوع جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.DeleteMeetingCategory(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingCategory.InputDeleteMeetingCategory)">
+            <summary>
+                ویرایش موضوع جلسه
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.GetAllMeetingCategory">
+            <summary>
+                دریافت همه موضوعات جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.GetAllMeetingCategoryByUserDepartmentId(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingCategory.InputGetAllMeetingCategoryByUserDepartmentId)">
+            <summary>
+                دریافت موضوعات جلسات امور
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.GetDepartmentCategoryList(Motorsazan.MeetingSystem.Shared.Models.Input.MeetingCategory.InputGetDepartmentCategoryList)">
+            <summary>
+                دریافت موضوعات جلسات امور کاربر
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.GetLastCategoryCode">
+            <summary>
+            آخرین کد موضوع جلسه 
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Controllers.MeetingCategoryController.GetAllMainDepartment">
+            <summary>
+                دریافت همه موضوعات جلسات
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Motorsazan.MeetingSystem.Api.Utilities.QueryResultExtensions">
+            <summary>
+            Contains extension methods of QueryResult type
+            </summary>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Utilities.QueryResultExtensions.ToOutput``1(Motorsazan.MeetingSystem.Api.Models.Base.QueryResult)">
+            <summary>
+            Extension method that converts QueryResult to a TOutput
+            </summary>
+            <typeparam name="TOutput">Target class of conversion</typeparam>
+            <param name="queryResult">Source class of conversion</param>
+            <returns></returns>
+        </member>
+        <member name="T:Motorsazan.MeetingSystem.Api.Utilities.SqlParameterExtensions">
+            <summary>
+            Contains extension methods of related to SqlParameter
+            </summary>
+        </member>
+        <member name="M:Motorsazan.MeetingSystem.Api.Utilities.SqlParameterExtensions.ToSqlParameters``1(``0)">
+            <summary>
+            Convert input to list of SqlParameters
+            </summary>
+            <param name="input">Source of conversion</param>
+            <typeparam name="TInput">Must be a input class</typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
